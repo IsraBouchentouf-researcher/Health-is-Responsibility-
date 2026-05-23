@@ -1,0 +1,1108 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>صحّتك مسؤولية</title>
+<link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@300;400;500;700&family=Cairo:wght@300;400;600;700&display=swap" rel="stylesheet">
+<style>
+:root {
+  --primary: #0a6e5c;
+  --primary-light: #12a085;
+  --primary-dark: #064d40;
+  --accent: #e8f5f1;
+  --danger: #c0392b;
+  --danger-light: #fdf0ee;
+  --warning: #e67e22;
+  --warning-light: #fef5ec;
+  --text: #1a2e28;
+  --text-muted: #5a7a72;
+  --bg: #f8fdfb;
+  --white: #ffffff;
+  --border: #d4ede6;
+  --card-shadow: 0 2px 16px rgba(10,110,92,0.08);
+}
+
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+body {
+  font-family: 'Cairo', 'Tajawal', sans-serif;
+  background: var(--bg);
+  color: var(--text);
+  min-height: 100vh;
+}
+
+/* NAV */
+nav {
+  background: var(--white);
+  border-bottom: 1px solid var(--border);
+  padding: 0 2rem;
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 64px;
+}
+
+.logo {
+  font-size: 1.3rem;
+  font-weight: 700;
+  color: var(--primary);
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.logo span { font-size: 1.5rem; }
+
+.nav-links {
+  display: flex;
+  gap: 0.5rem;
+  list-style: none;
+}
+
+.nav-links a {
+  text-decoration: none;
+  color: var(--text-muted);
+  font-size: 0.9rem;
+  padding: 6px 14px;
+  border-radius: 8px;
+  transition: all 0.2s;
+  font-weight: 500;
+}
+
+.nav-links a:hover, .nav-links a.active {
+  background: var(--accent);
+  color: var(--primary);
+}
+
+
+
+/* PAGES */
+.page { display: none; }
+.page.active { display: block; }
+
+/* HERO */
+.hero {
+  background: linear-gradient(135deg, var(--primary-dark) 0%, var(--primary) 60%, var(--primary-light) 100%);
+  color: white;
+  padding: 5rem 2rem 4rem;
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+}
+
+.hero::before {
+  content: '';
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background: radial-gradient(circle, rgba(255,255,255,0.05) 0%, transparent 60%);
+}
+
+.hero h1 {
+  font-size: 2.8rem;
+  font-weight: 700;
+  margin-bottom: 1rem;
+  position: relative;
+}
+
+.hero p {
+  font-size: 1.15rem;
+  opacity: 0.9;
+  max-width: 600px;
+  margin: 0 auto 2rem;
+  line-height: 1.7;
+}
+
+.hero-btns {
+  display: flex;
+  gap: 1rem;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.btn-primary {
+  background: white;
+  color: var(--primary);
+  border: none;
+  padding: 12px 28px;
+  border-radius: 50px;
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s;
+  font-family: inherit;
+}
+
+.btn-primary:hover { transform: translateY(-2px); box-shadow: 0 8px 24px rgba(0,0,0,0.15); }
+
+.btn-outline {
+  background: transparent;
+  color: white;
+  border: 2px solid rgba(255,255,255,0.6);
+  padding: 12px 28px;
+  border-radius: 50px;
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s;
+  font-family: inherit;
+}
+
+.btn-outline:hover { background: rgba(255,255,255,0.1); }
+
+/* STATS */
+.stats {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+  gap: 1px;
+  background: var(--border);
+  border-top: 1px solid var(--border);
+}
+
+.stat {
+  background: var(--white);
+  padding: 1.5rem;
+  text-align: center;
+}
+
+.stat-num {
+  font-size: 1.8rem;
+  font-weight: 700;
+  color: var(--primary);
+}
+
+.stat-label {
+  font-size: 0.85rem;
+  color: var(--text-muted);
+  margin-top: 4px;
+}
+
+/* SYMPTOM CHECKER */
+.checker-section {
+  padding: 3rem 2rem;
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.section-title {
+  font-size: 1.6rem;
+  font-weight: 700;
+  color: var(--text);
+  margin-bottom: 0.5rem;
+}
+
+.section-sub {
+  color: var(--text-muted);
+  margin-bottom: 2rem;
+  font-size: 0.95rem;
+}
+
+.checker-box {
+  background: var(--white);
+  border: 1px solid var(--border);
+  border-radius: 16px;
+  padding: 2rem;
+  box-shadow: var(--card-shadow);
+}
+
+.checker-input {
+  width: 100%;
+  padding: 14px 16px;
+  border: 1.5px solid var(--border);
+  border-radius: 12px;
+  font-size: 1rem;
+  font-family: inherit;
+  resize: none;
+  color: var(--text);
+  background: var(--bg);
+  transition: border 0.2s;
+  line-height: 1.6;
+}
+
+.checker-input:focus {
+  outline: none;
+  border-color: var(--primary);
+  background: white;
+}
+
+.checker-input::placeholder { color: var(--text-muted); }
+
+.checker-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin: 1rem 0;
+}
+
+.tag {
+  background: var(--accent);
+  color: var(--primary);
+  border: 1px solid var(--border);
+  padding: 6px 14px;
+  border-radius: 50px;
+  font-size: 0.85rem;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.tag:hover { background: var(--primary); color: white; }
+
+.check-btn {
+  width: 100%;
+  background: var(--primary);
+  color: white;
+  border: none;
+  padding: 14px;
+  border-radius: 12px;
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s;
+  font-family: inherit;
+  margin-top: 1rem;
+}
+
+.check-btn:hover { background: var(--primary-dark); }
+
+/* RESULT */
+.result-box {
+  margin-top: 1.5rem;
+  border-radius: 12px;
+  overflow: hidden;
+  display: none;
+}
+
+.result-header {
+  padding: 1rem 1.25rem;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-weight: 600;
+}
+
+.result-body {
+  padding: 1.25rem;
+  background: white;
+}
+
+.result-row {
+  display: flex;
+  gap: 10px;
+  margin-bottom: 1rem;
+  align-items: flex-start;
+}
+
+.result-label {
+  font-size: 0.8rem;
+  color: var(--text-muted);
+  font-weight: 600;
+  min-width: 80px;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  padding-top: 2px;
+}
+
+.result-value {
+  font-size: 0.95rem;
+  color: var(--text);
+  line-height: 1.6;
+}
+
+.severity-badge {
+  display: inline-block;
+  padding: 3px 12px;
+  border-radius: 50px;
+  font-size: 0.8rem;
+  font-weight: 600;
+}
+
+.sev-low { background: #e8f5e9; color: #2e7d32; }
+.sev-medium { background: var(--warning-light); color: var(--warning); }
+.sev-high { background: var(--danger-light); color: var(--danger); }
+
+.result-danger { border: 1.5px solid #ffcdd2; }
+.result-danger .result-header { background: var(--danger-light); color: var(--danger); }
+
+.result-warning { border: 1.5px solid #ffe0b2; }
+.result-warning .result-header { background: var(--warning-light); color: var(--warning); }
+
+.result-ok { border: 1.5px solid #c8e6c9; }
+.result-ok .result-header { background: #e8f5e9; color: #2e7d32; }
+
+/* SECTIONS GRID */
+.sections-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 1rem;
+  padding: 2rem;
+  max-width: 1100px;
+  margin: 0 auto;
+}
+
+.section-card {
+  background: var(--white);
+  border: 1px solid var(--border);
+  border-radius: 14px;
+  padding: 1.5rem;
+  cursor: pointer;
+  transition: all 0.2s;
+  text-align: center;
+}
+
+.section-card:hover {
+  transform: translateY(-3px);
+  box-shadow: var(--card-shadow);
+  border-color: var(--primary);
+}
+
+.section-icon {
+  font-size: 2rem;
+  margin-bottom: 0.75rem;
+}
+
+.section-card h3 {
+  font-size: 1rem;
+  font-weight: 600;
+  color: var(--text);
+  margin-bottom: 0.5rem;
+}
+
+.section-card p {
+  font-size: 0.85rem;
+  color: var(--text-muted);
+  line-height: 1.5;
+}
+
+/* CONTENT PAGE */
+.content-page {
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 2rem;
+}
+
+.page-header {
+  margin-bottom: 2rem;
+  padding-bottom: 1rem;
+  border-bottom: 1px solid var(--border);
+}
+
+.page-header h2 {
+  font-size: 1.8rem;
+  font-weight: 700;
+  color: var(--text);
+  margin-bottom: 0.5rem;
+}
+
+.cards-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 1rem;
+}
+
+.info-card {
+  background: var(--white);
+  border: 1px solid var(--border);
+  border-radius: 14px;
+  padding: 1.5rem;
+  box-shadow: var(--card-shadow);
+}
+
+.info-card h3 {
+  font-size: 1rem;
+  font-weight: 600;
+  color: var(--text);
+  margin-bottom: 0.75rem;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.steps {
+  counter-reset: step;
+  list-style: none;
+}
+
+.steps li {
+  display: flex;
+  gap: 10px;
+  margin-bottom: 0.6rem;
+  font-size: 0.9rem;
+  color: var(--text);
+  line-height: 1.5;
+  align-items: flex-start;
+}
+
+.steps li::before {
+  counter-increment: step;
+  content: counter(step);
+  background: var(--primary);
+  color: white;
+  width: 22px;
+  height: 22px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.75rem;
+  font-weight: 700;
+  flex-shrink: 0;
+  margin-top: 1px;
+}
+
+.warning-box {
+  background: var(--danger-light);
+  border: 1px solid #ffcdd2;
+  border-radius: 10px;
+  padding: 0.75rem 1rem;
+  font-size: 0.85rem;
+  color: var(--danger);
+  margin-top: 0.75rem;
+  display: flex;
+  gap: 8px;
+  align-items: flex-start;
+}
+
+/* EMERGENCY */
+.emergency-banner {
+  background: var(--danger);
+  color: white;
+  text-align: center;
+  padding: 1rem;
+  font-weight: 600;
+  font-size: 1.1rem;
+}
+
+.emergency-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 1rem;
+  padding: 2rem;
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+.emergency-card {
+  background: var(--white);
+  border: 1.5px solid var(--border);
+  border-radius: 14px;
+  padding: 1.5rem;
+  border-top: 4px solid var(--danger);
+}
+
+.emergency-card h3 {
+  color: var(--danger);
+  font-weight: 700;
+  margin-bottom: 1rem;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+/* ABOUT */
+.about-section {
+  max-width: 700px;
+  margin: 0 auto;
+  padding: 3rem 2rem;
+  text-align: center;
+}
+
+.about-avatar {
+  width: 100px;
+  height: 100px;
+  background: linear-gradient(135deg, var(--primary), var(--primary-light));
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 2.5rem;
+  margin: 0 auto 1.5rem;
+}
+
+.about-quote {
+  font-size: 1.2rem;
+  font-style: italic;
+  color: var(--text-muted);
+  line-height: 1.8;
+  margin: 1.5rem 0;
+  padding: 1.5rem;
+  border-right: 4px solid var(--primary);
+  text-align: right;
+  background: var(--accent);
+  border-radius: 0 12px 12px 0;
+}
+
+.contact-links {
+  display: flex;
+  gap: 1rem;
+  justify-content: center;
+  flex-wrap: wrap;
+  margin-top: 2rem;
+}
+
+.contact-link {
+  background: var(--white);
+  border: 1px solid var(--border);
+  padding: 10px 20px;
+  border-radius: 50px;
+  text-decoration: none;
+  color: var(--text);
+  font-size: 0.9rem;
+  transition: all 0.2s;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.contact-link:hover {
+  background: var(--primary);
+  color: white;
+  border-color: var(--primary);
+}
+
+/* BACK BUTTON */
+.back-bar {
+  padding: 1rem 2rem 0;
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+.back-btn {
+  background: none;
+  border: 1px solid var(--border);
+  padding: 8px 16px;
+  border-radius: 50px;
+  font-size: 0.9rem;
+  color: var(--text-muted);
+  cursor: pointer;
+  font-family: inherit;
+  transition: all 0.2s;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.back-btn:hover {
+  background: var(--accent);
+  color: var(--primary);
+  border-color: var(--primary);
+}
+
+/* DISCLAIMER */
+.disclaimer {
+  background: var(--warning-light);
+  border-top: 1px solid #ffe0b2;
+  padding: 1rem 2rem;
+  text-align: center;
+  font-size: 0.82rem;
+  color: var(--warning);
+}
+
+footer {
+  background: var(--primary-dark);
+  color: rgba(255,255,255,0.7);
+  text-align: center;
+  padding: 1.5rem;
+  font-size: 0.85rem;
+}
+
+@media (max-width: 600px) {
+  .hero h1 { font-size: 1.8rem; }
+  nav { padding: 0 1rem; }
+  .nav-links { display: none; }
+}
+</style>
+</head>
+<body>
+
+<nav>
+  <div class="logo">
+    <span>🩺</span> صحّتك مسؤولية
+  </div>
+  <ul class="nav-links">
+    <li><a href="#" class="active" onclick="showPage('home')">الرئيسية</a></li>
+    <li><a href="#" onclick="showPage('firstaid')">الإسعافات</a></li>
+    <li><a href="#" onclick="showPage('awareness')">التوعية</a></li>
+    <li><a href="#" onclick="showPage('emergency')">طوارئ</a></li>
+    <li><a href="#" onclick="showPage('about')">من نحن</a></li>
+  </ul>
+
+</nav>
+
+<!-- HOME PAGE -->
+<div id="home" class="page active">
+  <div class="hero">
+    <h1>معلومات طبية في متناول الجميع</h1>
+    <p>لأن اللحظة الحرجة لا تنتظر — تعرّف على الإسعافات الأولية، الأعراض، وكيفية التصرف الصحيح</p>
+    <div class="hero-btns">
+      <button class="btn-primary" onclick="showPage('checker')">🔍 تحقق من الأعراض</button>
+      <button class="btn-outline" onclick="showPage('emergency')">🚨 حالة طارئة</button>
+    </div>
+  </div>
+
+  <div class="stats">
+    <div class="stat"><div class="stat-num">+5</div><div class="stat-label">دليل إسعافات</div></div>
+    <div class="stat"><div class="stat-num">+5</div><div class="stat-label">مقالة توعوية</div></div>
+    <div class="stat"><div class="stat-num">24/7</div><div class="stat-label">متاح على مدار الساعة</div></div>
+    <div class="stat"><div class="stat-num">100%</div><div class="stat-label">مجاني وموثوق</div></div>
+  </div>
+
+  <div class="sections-grid">
+    <div class="section-card" onclick="showPage('checker')">
+      <div class="section-icon">🔍</div>
+      <h3>فاحص الأعراض</h3>
+      <p>اكتب أعراضك واحصل على تقييم فوري</p>
+    </div>
+    <div class="section-card" onclick="showPage('firstaid')">
+      <div class="section-icon">🩹</div>
+      <h3>الإسعافات الأولية</h3>
+      <p>خطوات واضحة للتعامل مع الحالات الطارئة</p>
+    </div>
+    <div class="section-card" onclick="showPage('awareness')">
+      <div class="section-icon">💡</div>
+      <h3>التوعية الصحية</h3>
+      <p>معلومات عن الأمراض الشائعة والوقاية</p>
+    </div>
+    <div class="section-card" onclick="showPage('emergency')">
+      <div class="section-icon">🚨</div>
+      <h3>الطوارئ</h3>
+      <p>تصرف بسرعة في الحالات الحرجة</p>
+    </div>
+    <div class="section-card" onclick="showPage('about')">
+      <div class="section-icon">💙</div>
+      <h3>من نحن</h3>
+      <p>قصة هذا الموقع ولماذا أنشأناه</p>
+    </div>
+  </div>
+</div>
+
+<!-- CHECKER PAGE -->
+<div id="checker" class="page">
+  <div class="back-bar">
+    <button class="back-btn" onclick="showPage('home')">→ الرئيسية</button>
+  </div>
+  <div class="checker-section">
+    <h2 class="section-title">🔍 فاحص الأعراض</h2>
+    <p class="section-sub">اكتب ما تشعر به أو ما حدث، وسنساعدك على فهم الوضع</p>
+    <div class="checker-box">
+      <textarea class="checker-input" id="symptomInput2" rows="4" placeholder="مثال: عندي صداع شديد وغثيان منذ ساعتين، وأرى بشكل مشوش..."></textarea>
+      <div class="checker-tags">
+        <span class="tag" onclick="addTag2('صداع')">صداع</span>
+        <span class="tag" onclick="addTag2('حمى')">حمى</span>
+        <span class="tag" onclick="addTag2('ألم في الصدر')">ألم في الصدر</span>
+        <span class="tag" onclick="addTag2('نزيف')">نزيف</span>
+        <span class="tag" onclick="addTag2('إغماء')">إغماء</span>
+        <span class="tag" onclick="addTag2('تعب وإرهاق')">تعب وإرهاق</span>
+        <span class="tag" onclick="addTag2('صعوبة في التنفس')">صعوبة في التنفس</span>
+        <span class="tag" onclick="addTag2('غثيان وقيء')">غثيان وقيء</span>
+        <span class="tag" onclick="addTag2('ألم في البطن')">ألم في البطن</span>
+        <span class="tag" onclick="addTag2('دوخة')">دوخة</span>
+      </div>
+      <button class="check-btn" onclick="checkSymptoms2()">تحليل الأعراض ←</button>
+      <div class="result-box" id="resultBox2">
+        <div class="result-header" id="resultHeader2"></div>
+        <div class="result-body" id="resultBody2"></div>
+      </div>
+    </div>
+    <div class="disclaimer" style="border-radius:12px; margin-top:1rem;">
+      ⚠️ هذا الفاحص للتوعية فقط وليس بديلاً عن استشارة طبيب متخصص
+    </div>
+  </div>
+</div>
+
+<!-- FIRST AID PAGE -->
+<div id="firstaid" class="page">
+  <div class="content-page">
+    <div class="back-bar" style="padding: 1rem 0 0;">
+      <button class="back-btn" onclick="showPage('home')">→ الرئيسية</button>
+    </div>
+    <div class="page-header">
+      <h2>🩹 الإسعافات الأولية</h2>
+      <p style="color:var(--text-muted)">خطوات واضحة وبسيطة للتعامل مع الحالات الطارئة</p>
+    </div>
+    <div class="cards-grid">
+
+      <div class="info-card">
+        <h3>🩸 نزيف حاد</h3>
+        <ol class="steps">
+          <li>اضغط بقوة على الجرح بقماش نظيف</li>
+          <li>لا ترفع يدك حتى يتوقف النزيف</li>
+          <li>ارفع الجزء المصاب لأعلى</li>
+          <li>اطلب الإسعاف إذا لم يتوقف خلال 10 دقائق</li>
+        </ol>
+        <div class="warning-box">⚠️ لا تنزع القماش — أضف فوقه إذا ابتل</div>
+      </div>
+
+      <div class="info-card">
+        <h3>🔥 حروق</h3>
+        <ol class="steps">
+          <li>أبتعد عن مصدر الحرارة فوراً</li>
+          <li>ضعه تحت ماء بارد لمدة 10-20 دقيقة</li>
+          <li>لا تستخدم معجون أسنان أو زيت</li>
+          <li>غطِّه بضمادة نظيفة وغير لاصقة</li>
+        </ol>
+        <div class="warning-box">⚠️ الحروق الكبيرة أو على الوجه — اطلب الإسعاف فوراً</div>
+      </div>
+
+      <div class="info-card">
+        <h3>😮 اختناق</h3>
+        <ol class="steps">
+          <li>اطلب من الشخص السعال بقوة</li>
+          <li>أمِل جسمه للأمام واضرب ظهره 5 مرات</li>
+          <li>إذا لم ينجح: مناورة هايمليك</li>
+          <li>اتصل بالإسعاف فوراً</li>
+        </ol>
+        <div class="warning-box">⚠️ مع الأطفال الرضع: أمسك برأسه للأسفل واضرب ظهره برفق</div>
+      </div>
+
+      <div class="info-card">
+        <h3>🫀 إغماء</h3>
+        <ol class="steps">
+          <li>ضعه على ظهره في مكان آمن</li>
+          <li>ارفع ساقيه لأعلى (30 سم)</li>
+          <li>تأكد من تنفسه الطبيعي</li>
+          <li>لا تعطه طعاماً أو شراباً</li>
+        </ol>
+        <div class="warning-box">⚠️ إذا لم يصحُ خلال دقيقة: اتصل بالإسعاف</div>
+      </div>
+
+      <div class="info-card">
+        <h3>🦴 كسور</h3>
+        <ol class="steps">
+          <li>لا تحرك الجزء المصاب</li>
+          <li>ثبّته بجبيرة بسيطة (عصا + قماش)</li>
+          <li>ضع ثلجاً ملفوفاً في قماش</li>
+          <li>انقل المصاب للمستشفى فوراً</li>
+        </ol>
+        <div class="warning-box">⚠️ كسور العمود الفقري: لا تحرك المريض أبداً</div>
+      </div>
+
+      <div class="info-card">
+        <h3>🫁 CPR إنعاش قلبي</h3>
+        <ol class="steps">
+          <li>تحقق من الوعي: ناده واهزه برفق</li>
+          <li>اتصل بالإسعاف فوراً</li>
+          <li>ابدأ ضغطات الصدر: 30 ضغطة</li>
+          <li>نفختان من الفم، كرر حتى وصول المساعدة</li>
+        </ol>
+        <div class="warning-box">⚠️ اضغط بقوة وسرعة — 100 ضغطة في الدقيقة</div>
+      </div>
+
+    </div>
+  </div>
+</div>
+
+<!-- AWARENESS PAGE -->
+<div id="awareness" class="page">
+  <div class="content-page">
+    <div class="back-bar" style="padding: 1rem 0 0;">
+      <button class="back-btn" onclick="showPage('home')">→ الرئيسية</button>
+    </div>
+    <div class="page-header">
+      <h2>💡 التوعية الصحية</h2>
+      <p style="color:var(--text-muted)">معلومات ضرورية عن الأمراض الشائعة والوقاية منها</p>
+    </div>
+    <div class="cards-grid">
+
+      <div class="info-card">
+        <h3>❤️ أعراض النوبة القلبية</h3>
+        <ul style="list-style:none; font-size:0.9rem; color:var(--text)">
+          <li style="margin-bottom:6px">• ألم أو ضغط في الصدر يمتد للذراع أو الفك</li>
+          <li style="margin-bottom:6px">• تعرق بارد وغثيان مفاجئ</li>
+          <li style="margin-bottom:6px">• صعوبة في التنفس</li>
+          <li style="margin-bottom:6px">• دوخة شديدة أو إغماء</li>
+        </ul>
+        <div class="warning-box">⚠️ اتصل بالإسعاف فوراً — لا تقد السيارة</div>
+      </div>
+
+      <div class="info-card">
+        <h3>🧠 أعراض السكتة الدماغية</h3>
+        <p style="font-size:0.9rem; margin-bottom:0.75rem; color:var(--text)">تذكر: <strong>FAST</strong></p>
+        <ul style="list-style:none; font-size:0.9rem; color:var(--text)">
+          <li style="margin-bottom:6px">• <strong>F</strong>ace — تدلي وجه من جهة</li>
+          <li style="margin-bottom:6px">• <strong>A</strong>rm — ضعف في ذراع</li>
+          <li style="margin-bottom:6px">• <strong>S</strong>peech — تعثر الكلام</li>
+          <li style="margin-bottom:6px">• <strong>T</strong>ime — اتصل بالإسعاف الآن</li>
+        </ul>
+        <div class="warning-box">⚠️ كل دقيقة تأخير = 1.9 مليون خلية عصبية تموت</div>
+      </div>
+
+      <div class="info-card">
+        <h3>🩺 ضغط الدم</h3>
+        <ul style="list-style:none; font-size:0.9rem; color:var(--text)">
+          <li style="margin-bottom:6px">• طبيعي: أقل من 120/80</li>
+          <li style="margin-bottom:6px">• مرتفع: أكثر من 140/90</li>
+          <li style="margin-bottom:6px">• خطر: أكثر من 180/110</li>
+        </ul>
+        <div class="warning-box">⚠️ فوق 180: صداع شديد + طنين = طارئ فوري</div>
+      </div>
+
+      <div class="info-card">
+        <h3>🌡️ الحمى — متى تقلق؟</h3>
+        <ul style="list-style:none; font-size:0.9rem; color:var(--text)">
+          <li style="margin-bottom:6px">• 37-38° — طبيعي، استرح وكثّر الماء</li>
+          <li style="margin-bottom:6px">• 38-39° — مراقبة + خافض حرارة</li>
+          <li style="margin-bottom:6px">• أكثر من 40° — اطلب طبيباً فوراً</li>
+        </ul>
+        <div class="warning-box">⚠️ عند الأطفال الرضع: أي حمى = طبيب فوري</div>
+      </div>
+
+      <div class="info-card">
+        <h3>💊 السكري — علامات تحذيرية</h3>
+        <ul style="list-style:none; font-size:0.9rem; color:var(--text)">
+          <li style="margin-bottom:6px">• عطش شديد ومستمر</li>
+          <li style="margin-bottom:6px">• كثرة التبول خاصة ليلاً</li>
+          <li style="margin-bottom:6px">• تعب بلا سبب واضح</li>
+          <li style="margin-bottom:6px">• تأخر التئام الجروح</li>
+        </ul>
+        <div class="warning-box">⚠️ السكري لا يؤلم في بدايته — تحقق دورياً</div>
+      </div>
+
+      <div class="info-card">
+        <h3>😷 الوقاية من العدوى</h3>
+        <ol class="steps">
+          <li>اغسل يديك 20 ثانية بالصابون</li>
+          <li>تجنب لمس وجهك بيدين غير نظيفتين</li>
+          <li>غطِّ فمك عند السعال والعطس</li>
+          <li>حافظ على المسافة مع المرضى</li>
+        </ol>
+      </div>
+
+    </div>
+  </div>
+</div>
+
+<!-- EMERGENCY PAGE -->
+<div id="emergency" class="page">
+  <div class="emergency-banner">
+    🚨 في خطر مباشر؟ اتصل بالإسعاف فوراً
+  </div>
+  <div style="padding: 1rem 2rem 0; max-width:900px; margin:0 auto;">
+    <button class="back-btn" onclick="showPage('home')">→ الرئيسية</button>
+  </div>
+  <div class="emergency-grid">
+
+    <div class="emergency-card">
+      <h3>🫀 توقف القلب</h3>
+      <ol class="steps">
+        <li>اتصل بالإسعاف فوراً</li>
+        <li>ابدأ CPR: 30 ضغطة قوية على الصدر</li>
+        <li>نفختان من الفم كل 30 ضغطة</li>
+        <li>استمر حتى وصول المساعدة</li>
+      </ol>
+    </div>
+
+    <div class="emergency-card">
+      <h3>🧠 سكتة دماغية</h3>
+      <ol class="steps">
+        <li>اتصل بالإسعاف — الوقت حرج جداً</li>
+        <li>أضجع المريض وأرح رأسه</li>
+        <li>لا تعطه طعاماً أو دواء</li>
+        <li>لاحظ وقت ظهور الأعراض وأخبر الطبيب</li>
+      </ol>
+    </div>
+
+    <div class="emergency-card">
+      <h3>😮 اختناق شديد</h3>
+      <ol class="steps">
+        <li>شجع على السعال القوي</li>
+        <li>5 ضربات قوية على الظهر</li>
+        <li>مناورة هايمليك: ضغطات تحت القفص الصدري</li>
+        <li>كرر حتى خروج الجسم الغريب</li>
+      </ol>
+    </div>
+
+    <div class="emergency-card">
+      <h3>🩸 نزيف لا يتوقف</h3>
+      <ol class="steps">
+        <li>اضغط بقوة بقماش نظيف</li>
+        <li>ارفع الجزء المصاب للأعلى</li>
+        <li>لا ترفع الضغط حتى يتوقف</li>
+        <li>اتصل بالإسعاف إذا لم يتوقف بعد 10 دقائق</li>
+      </ol>
+    </div>
+
+    <div class="emergency-card">
+      <h3>🔥 حرق واسع</h3>
+      <ol class="steps">
+        <li>ابعد عن مصدر النار فوراً</li>
+        <li>ماء بارد جارٍ لمدة 20 دقيقة</li>
+        <li>لا تنزع الملابس الملتصقة</li>
+        <li>غطِّ بورق ألمنيوم واطلب الإسعاف</li>
+      </ol>
+    </div>
+
+    <div class="emergency-card">
+      <h3>💊 تسمم</h3>
+      <ol class="steps">
+        <li>اتصل بمركز السموم أو الإسعاف</li>
+        <li>لا تحاول إحداث القيء وحدك</li>
+        <li>احتفظ بعبوة المادة للطبيب</li>
+        <li>أخبر الطبيب بالمادة والكمية والوقت</li>
+      </ol>
+    </div>
+
+  </div>
+</div>
+
+<!-- ABOUT PAGE -->
+<div id="about" class="page">
+  <div class="back-bar">
+    <button class="back-btn" onclick="showPage('home')">→ الرئيسية</button>
+  </div>
+  <div class="about-section">
+    <div class="about-avatar">🩺</div>
+    <h2 style="font-size:1.8rem; font-weight:700; margin-bottom:0.5rem">صحّتك مسؤولية</h2>
+    <p style="color:var(--text-muted); margin-bottom:1.5rem">منصة توعوية طبية غير ربحية</p>
+
+    <div class="about-quote">
+      "رأيت أناساً يخافون ولا يعرفون كيف يتصرفون أمام إصابة بسيطة. و اخرون كانو ضحايا الجهل. لكنني لا ألومهم فهم لم يكن حولهم من يوعيهم. لذا قررت أن أفعل شيئاً — لعلّي يوماً ما أكون السبب في إنقاذ شخص ما."
+    </div>
+
+    <p style="line-height:1.8; color:var(--text); margin-bottom:1rem">
+      هذا الموقع وُلد من رغبة حقيقية في مساعدة الناس. في مجتمعات يغيب فيها الوعي الصحي — المعلومة الصحيحة في اللحظة الصحيحة قد تنقذ حياة.
+    </p>
+
+    <p style="line-height:1.8; color:var(--text); margin-bottom:2rem">
+      نحن هنا لنقدم معلومات طبية بسيطة وموثوقة، لا لنحل محل الطبيب — بل لنساعدك على التصرف الصحيح حتى تصل إليه.
+    </p>
+
+    <div class="contact-links">
+      <a href="mailto:contact@sehhtak.com" class="contact-link">📧 للتواصل isra.bouchentouf.research@gmail.com </a>
+    </div>
+
+    <div class="disclaimer" style="border-radius:12px; margin-top:2rem; text-align:right">
+      ⚠️ جميع المعلومات مرجعها منظمة الصحة العالمية WHO وMayo Clinic. هذا الموقع للتوعية فقط ولا يُغني عن استشارة الطبيب المختص.
+    </div>
+  </div>
+</div>
+
+<div class="disclaimer">
+  ⚠️ المحتوى لأغراض توعوية فقط — في الحالات الطارئة اتصل بالإسعاف فوراً
+</div>
+
+<footer>
+  © 2026 صحّتك مسؤولية — جميع الحقوق محفوظة
+</footer>
+
+<script>
+const symptoms = {
+  'صداع': {
+    keywords: ['صداع', 'راس', 'رأس', 'headache', 'mal de tête'],
+    conditions: [
+      { name: 'صداع توتري', severity: 'low', firstaid: 'استرح في مكان هادئ، اشرب ماء، يمكن أخذ مسكن بسيط', urgent: false },
+      { name: 'ارتفاع ضغط الدم', severity: 'medium', firstaid: 'قس ضغطك فوراً، استلقِ وارتاح، تجنب المجهود', urgent: true },
+      { name: 'سكتة دماغية محتملة', severity: 'high', firstaid: 'إذا مع ضعف وجه أو ذراع أو تعثر كلام — اتصل بالإسعاف فوراً', urgent: true }
+    ]
+  },
+  'ألم صدر': {
+    keywords: ['صدر', 'قلب', 'chest', 'poitrine', 'ضغط صدر'],
+    conditions: [
+      { name: 'نوبة قلبية محتملة', severity: 'high', firstaid: 'اجلس، استرح، اتصل بالإسعاف فوراً، لا تقد السيارة', urgent: true }
+    ]
+  },
+  'نزيف': {
+    keywords: ['نزيف', 'دم', 'جرح', 'bleeding', 'saignement'],
+    conditions: [
+      { name: 'نزيف خارجي', severity: 'medium', firstaid: 'اضغط بقماش نظيف، ارفع الجزء للأعلى، لا ترفع يدك', urgent: false }
+    ]
+  },
+  'صعوبة تنفس': {
+    keywords: ['تنفس', 'نفس', 'breath', 'respiration', 'ضيق'],
+    conditions: [
+      { name: 'أزمة ربو أو اختناق', severity: 'high', firstaid: 'اجلس منتصباً، هدّئ نفسك، اتصل بالإسعاف إذا لم يتحسن', urgent: true }
+    ]
+  },
+  'إغماء': {
+    keywords: ['إغماء', 'غشي', 'fainted', 'évanouissement', 'وعي'],
+    conditions: [
+      { name: 'إغماء', severity: 'medium', firstaid: 'أضجع على الظهر، ارفع الساقين، لا تعطه طعاماً، اتصل بالإسعاف', urgent: true }
+    ]
+  },
+  'حمى': {
+    keywords: ['حمى', 'حرارة', 'fever', 'fièvre', 'درجة حرارة'],
+    conditions: [
+      { name: 'حمى', severity: 'medium', firstaid: 'اشرب ماء كثيراً، استرح، خافض حرارة، اذهب للطبيب إذا فوق 39°', urgent: false }
+    ]
+  }
+};
+
+function addTag2(text) {
+  const input = document.getElementById('symptomInput2');
+  input.value = input.value ? input.value + '، ' + text : text;
+}
+
+function checkSymptoms2() {
+  const input = document.getElementById('symptomInput2').value.toLowerCase();
+  if (!input.trim()) { alert('من فضلك اكتب الأعراض أولاً'); return; }
+  runCheck(input, 'resultBox2', 'resultHeader2', 'resultBody2');
+}
+
+function checkSymptoms() {
+  const input = document.getElementById('symptomInput').value.toLowerCase();
+  if (!input.trim()) { alert('من فضلك اكتب الأعراض أولاً'); return; }
+  runCheck(input, 'resultBox', 'resultHeader', 'resultBody');
+}
+
+function runCheck(input, boxId, headerId, bodyId) {
+  let found = null;
+  let maxSeverity = 'low';
+  for (const [key, data] of Object.entries(symptoms)) {
+    for (const kw of data.keywords) {
+      if (input.includes(kw)) {
+        found = data;
+        const cond = data.conditions[data.conditions.length - 1];
+        if (cond.severity === 'high') maxSeverity = 'high';
+        else if (cond.severity === 'medium' && maxSeverity !== 'high') maxSeverity = 'medium';
+        break;
+      }
+    }
+  }
+  const box = document.getElementById(boxId);
+  const header = document.getElementById(headerId);
+  const body = document.getElementById(bodyId);
+  if (!found) {
+    box.style.display = 'block';
+    box.className = 'result-box result-ok';
+    header.innerHTML = '✅ لا نتائج محددة';
+    body.innerHTML = '<p style="font-size:0.95rem; color:var(--text)">لم نتعرف على الأعراض بشكل دقيق. إذا كنت تشعر بتعب حقيقي، استشر طبيباً.<br><br><strong>نصيحة:</strong> حاول وصف الأعراض بكلمات أوضح مثل: صداع، حمى، نزيف، ألم صدر...</p>';
+    return;
+  }
+  const condition = found.conditions[found.conditions.length - 1];
+  box.style.display = 'block';
+  if (maxSeverity === 'high') { box.className = 'result-box result-danger'; header.innerHTML = '🚨 حالة تستدعي الإسعاف فوراً'; }
+  else if (maxSeverity === 'medium') { box.className = 'result-box result-warning'; header.innerHTML = '⚠️ يُنصح بمراجعة الطبيب'; }
+  else { box.className = 'result-box result-ok'; header.innerHTML = '✅ حالة غير حرجة'; }
+  const sevClass = maxSeverity === 'high' ? 'sev-high' : maxSeverity === 'medium' ? 'sev-medium' : 'sev-low';
+  const sevText = maxSeverity === 'high' ? 'خطر' : maxSeverity === 'medium' ? 'متوسط' : 'خفيف';
+  body.innerHTML = `
+    <div class="result-row"><span class="result-label">الحالة</span><span class="result-value">${condition.name} <span class="severity-badge ${sevClass}">${sevText}</span></span></div>
+    <div class="result-row"><span class="result-label">الإسعافات</span><span class="result-value">${condition.firstaid}</span></div>
+    <div class="result-row"><span class="result-label">الإسعاف</span><span class="result-value">${condition.urgent ? '🚨 نعم، اتصل فوراً' : 'ليس ضرورياً الآن'}</span></div>
+    <p style="font-size:0.8rem; color:var(--text-muted); margin-top:0.5rem; border-top:1px solid var(--border); padding-top:0.5rem">⚠️ هذا تقييم توعوي فقط — استشر طبيباً للتشخيص الدقيق</p>
+  `;
+}
+
+function showPage(id) {
+  document.querySelectorAll('.page').forEach(p => p.classList.remove('active'));
+  document.getElementById(id).classList.add('active');
+  document.querySelectorAll('.nav-links a').forEach(a => a.classList.remove('active'));
+  window.scrollTo(0, 0);
+}
+
+function addTag(text) {
+  const input = document.getElementById('symptomInput');
+  input.value = input.value ? input.value + '، ' + text : text;
+}
+
+
+
+
+</script>
+</body>
+</html>
