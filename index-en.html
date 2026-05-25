@@ -1,0 +1,1108 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+  <!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-B5HHC92DEE"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-B5HHC92DEE');
+</script>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Health is Responsibility</title>
+<link href="https://googleapis.com" rel="stylesheet">
+<style>
+:root {
+  --primary: #0a6e5c;
+  --primary-light: #12a085;
+  --primary-dark: #064d40;
+  --accent: #e8f5f1;
+  --danger: #c0392b;
+  --danger-light: #fdf0ee;
+  --warning: #e67e22;
+  --warning-light: #fef5ec;
+  --text: #1a2e28;
+  --text-muted: #5a7a72;
+  --bg: #f8fdfb;
+  --white: #ffffff;
+  --border: #d4ede6;
+  --card-shadow: 0 2px 16px rgba(10,110,92,0.08);
+}
+
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+body {
+  font-family: 'Plus Jakarta Sans', 'Inter', sans-serif;
+  background: var(--bg);
+  color: var(--text);
+  min-height: 100vh;
+}
+
+/* NAV */
+nav {
+  background: var(--white);
+  border-bottom: 1px solid var(--border);
+  padding: 0 2rem;
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 64px;
+}
+
+.logo {
+  font-size: 1.3rem;
+  font-weight: 700;
+  color: var(--primary);
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.logo span { font-size: 1.5rem; }
+
+.nav-links {
+  display: flex;
+  gap: 0.5rem;
+  list-style: none;
+}
+
+.nav-links a {
+  text-decoration: none;
+  color: var(--text-muted);
+  font-size: 0.9rem;
+  padding: 6px 14px;
+  border-radius: 8px;
+  transition: all 0.2s;
+  font-weight: 500;
+}
+
+.nav-links a:hover, .nav-links a.active {
+  background: var(--accent);
+  color: var(--primary);
+}
+
+
+
+/* PAGES */
+.page { display: none; }
+.page.active { display: block; }
+
+/* HERO */
+.hero {
+  background: linear-gradient(135deg, var(--primary-dark) 0%, var(--primary) 60%, var(--primary-light) 100%);
+  color: white;
+  padding: 5rem 2rem 4rem;
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+}
+.hero::before {
+  content: '';
+  position: absolute;
+  top: -50%;
+  right: -50%;
+  width: 200%;
+  height: 200%;
+  background: radial-gradient(circle, rgba(255,255,255,0.05) 0%, transparent 60%);
+}
+
+.hero h1 {
+  font-size: 2.8rem;
+  font-weight: 700;
+  margin-bottom: 1rem;
+  position: relative;
+}
+
+.hero p {
+  font-size: 1.15rem;
+  opacity: 0.9;
+  max-width: 600px;
+  margin: 0 auto 2rem;
+  line-height: 1.7;
+}
+
+.hero-btns {
+  display: flex;
+  gap: 1rem;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.btn-primary {
+  background: white;
+  color: var(--primary);
+  border: none;
+  padding: 12px 28px;
+  border-radius: 50px;
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s;
+  font-family: inherit;
+}
+
+.btn-primary:hover { transform: translateY(-2px); box-shadow: 0 8px 24px rgba(0,0,0,0.15); }
+
+.btn-outline {
+  background: transparent;
+  color: white;
+  border: 2px solid rgba(255,255,255,0.6);
+  padding: 12px 28px;
+  border-radius: 50px;
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s;
+  font-family: inherit;
+}
+
+.btn-outline:hover { background: rgba(255,255,255,0.1); }
+
+/* STATS */
+.stats {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+  gap: 1px;
+  background: var(--border);
+  border-top: 1px solid var(--border);
+}
+
+.stat {
+  background: var(--white);
+  padding: 1.5rem;
+  text-align: center;
+}
+
+.stat-num {
+  font-size: 1.8rem;
+  font-weight: 700;
+  color: var(--primary);
+}
+
+.stat-label {
+  font-size: 0.85rem;
+  color: var(--text-muted);
+  margin-top: 4px;
+}
+
+/* SYMPTOM CHECKER */
+.checker-section {
+  padding: 3rem 2rem;
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.section-title {
+  font-size: 1.6rem;
+  font-weight: 700;
+  color: var(--text);
+  margin-bottom: 0.5rem;
+}
+
+.section-sub {
+  color: var(--text-muted);
+  margin-bottom: 2rem;
+  font-size: 0.95rem;
+}
+
+.checker-box {
+  background: var(--white);
+  border: 1px solid var(--border);
+  border-radius: 16px;
+  padding: 2rem;
+  box-shadow: var(--card-shadow);
+}
+.checker-input {
+  width: 100%;
+  padding: 14px 16px;
+  border: 1.5px solid var(--border);
+  border-radius: 12px;
+  font-size: 1rem;
+  font-family: inherit;
+  resize: none;
+  color: var(--text);
+  background: var(--bg);
+  transition: border 0.2s;
+  line-height: 1.6;
+}
+
+.checker-input:focus {
+  outline: none;
+  border-color: var(--primary);
+  background: white;
+}
+
+.checker-input::placeholder { color: var(--text-muted); }
+
+.checker-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin: 1rem 0;
+}
+
+.tag {
+  background: var(--accent);
+  color: var(--primary);
+  border: 1px solid var(--border);
+  padding: 6px 14px;
+  border-radius: 50px;
+  font-size: 0.85rem;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.tag:hover { background: var(--primary); color: white; }
+
+.check-btn {
+  width: 100%;
+  background: var(--primary);
+  color: white;
+  border: none;
+  padding: 14px;
+  border-radius: 12px;
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s;
+  font-family: inherit;
+  margin-top: 1rem;
+}
+
+.check-btn:hover { background: var(--primary-dark); }
+
+/* RESULT */
+.result-box {
+  margin-top: 1.5rem;
+  border-radius: 12px;
+  overflow: hidden;
+  display: none;
+}
+
+.result-header {
+  padding: 1rem 1.25rem;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-weight: 600;
+}
+
+.result-body {
+  padding: 1.25rem;
+  background: white;
+}
+
+.result-row {
+  display: flex;
+  gap: 10px;
+  margin-bottom: 1rem;
+  align-items: flex-start;
+}
+
+.result-label {
+  font-size: 0.8rem;
+  color: var(--text-muted);
+  font-weight: 600;
+  min-width: 80px;
+  text-transform: uppercase;
+  letter-spacing: 0.7px;
+  padding-top: 2px;
+}
+
+.result-value {
+  font-size: 0.95rem;
+  color: var(--text);
+  line-height: 1.6;
+}
+
+.severity-badge {
+  display: inline-block;
+  padding: 3px 12px;
+  border-radius: 50px;
+  font-size: 0.8rem;
+  font-weight: 600;
+}
+
+.sev-low { background: #e8f5e9; color: #2e7d32; }
+.sev-medium { background: var(--warning-light); color: var(--warning); }
+.sev-high { background: var(--danger-light); color: var(--danger); }
+
+.result-danger { border: 1.5px solid #ffcdd2; }
+.result-danger .result-header { background: var(--danger-light); color: var(--danger); }
+
+.result-warning { border: 1.5px solid #ffe0b2; }
+.result-warning .result-header { background: var(--warning-light); color: var(--warning); }
+
+.result-ok { border: 1.5px solid #c8e6c9; }
+.result-ok .result-header { background: #e8f5e9; color: #2e7d32; }
+
+/* SECTIONS GRID */
+.sections-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 1rem;
+  padding: 2rem;
+  max-width: 1100px;
+  margin: 0 auto;
+}
+
+.section-card {
+  background: var(--white);
+  border: 1px solid var(--border);
+  border-radius: 14px;
+  padding: 1.5rem;
+  cursor: pointer;
+  transition: all 0.2s;
+  text-align: center;
+}
+
+.section-card:hover {
+  transform: translateY(-3px);
+  box-shadow: var(--card-shadow);
+  border-color: var(--primary);
+}
+
+.section-icon {
+  font-size: 2rem;
+  margin-bottom: 0.75rem;
+}
+
+.section-card h3 {
+  font-size: 1rem;
+  font-weight: 600;
+  color: var(--text);
+  margin-bottom: 0.5rem;
+}
+
+.section-card p {
+  font-size: 0.85rem;
+  color: var(--text-muted);
+  line-height: 1.5;
+}
+
+/* CONTENT PAGE */
+.content-page {
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 2rem;
+}
+.page-header {
+  margin-bottom: 2rem;
+  padding-bottom: 1rem;
+  border-bottom: 1px solid var(--border);
+}
+
+.page-header h2 {
+  font-size: 1.8rem;
+  font-weight: 700;
+  color: var(--text);
+  margin-bottom: 0.5rem;
+}
+
+.cards-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 1rem;
+}
+
+.info-card {
+  background: var(--white);
+  border: 1px solid var(--border);
+  border-radius: 14px;
+  padding: 1.5rem;
+  box-shadow: var(--card-shadow);
+}
+
+.info-card h3 {
+  font-size: 1rem;
+  font-weight: 600;
+  color: var(--text);
+  margin-bottom: 0.75rem;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.steps {
+  counter-reset: step;
+  list-style: none;
+}
+
+.steps li {
+  display: flex;
+  gap: 10px;
+  margin-bottom: 0.6rem;
+  font-size: 0.9rem;
+  color: var(--text);
+  line-height: 1.5;
+  align-items: flex-start;
+}
+
+.steps li::before {
+  counter-increment: step;
+  content: counter(step);
+  background: var(--primary);
+  color: white;
+  width: 22px;
+  height: 22px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.75rem;
+  font-weight: 700;
+  flex-shrink: 0;
+  margin-top: 1px;
+}
+
+.warning-box {
+  background: var(--danger-light);
+  border: 1px solid #ffcdd2;
+  border-radius: 10px;
+  padding: 0.75rem 1rem;
+  font-size: 0.85rem;
+  color: var(--danger);
+  margin-top: 0.75rem;
+  display: flex;
+  gap: 8px;
+  align-items: flex-start;
+}
+
+/* EMERGENCY */
+.emergency-banner {
+  background: var(--danger);
+  color: white;
+  text-align: center;
+  padding: 1rem;
+  font-weight: 600;
+  font-size: 1.1rem;
+}
+
+.emergency-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 1rem;
+  padding: 2rem;
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+.emergency-card {
+  background: var(--white);
+  border: 1.5px solid var(--border);
+  border-radius: 14px;
+  padding: 1.5rem;
+  border-top: 4px solid var(--danger);
+}
+
+.emergency-card h3 {
+  color: var(--danger);
+  font-weight: 700;
+  margin-bottom: 1rem;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+/* ABOUT */
+.about-section {
+  max-width: 700px;
+  margin: 0 auto;
+  padding: 3rem 2rem;
+  text-align: center;
+}
+
+.about-avatar {
+  width: 100px;
+  height: 100px;
+  background: linear-gradient(135deg, var(--primary), var(--primary-light));
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 2.5rem;
+  margin: 0 auto 1.5rem;
+}
+
+.about-quote {
+  font-size: 1.2rem;
+  font-style: italic;
+  color: var(--text-muted);
+  line-height: 1.8;
+  margin: 1.5rem 0;
+  padding: 1.5rem;
+  border-left: 4px solid var(--primary);
+  text-align: left;
+  background: var(--accent);
+  border-radius: 12px;
+}
+
+.contact-links {
+  display: flex;
+  gap: 1rem;
+  justify-content: center;
+  flex-wrap: wrap;
+  margin-top: 2rem;
+}
+
+.contact-link {
+  background: var(--white);
+  border: 1px solid var(--border);
+  padding: 10px 20px;
+  border-radius: 50px;
+  text-decoration: none;
+  color: var(--text);
+  font-size: 0.9rem;
+  transition: all 0.2s;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.contact-link:hover {
+  background: var(--primary);
+  color: white;
+  border-color: var(--primary);
+}
+
+/* BACK BUTTON */
+.back-bar {
+  padding: 1rem 2rem 0;
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+.back-btn {
+  background: none;
+  border: 1px solid var(--border);
+  padding: 8px 16px;
+  border-radius: 50px;
+  font-size: 0.9rem;
+  color: var(--text-muted);
+  cursor: pointer;
+  font-family: inherit;
+  transition: all 0.2s;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.back-btn:hover {
+  background: var(--accent);
+  color: var(--primary);
+  border-color: var(--primary);
+}
+
+/* DISCLAIMER */
+.disclaimer {
+  background: var(--warning-light);
+  border-top: 1px solid #ffe0b2;
+  padding: 1rem 2rem;
+  text-align: center;
+  font-size: 0.82rem;
+  color: var(--warning);
+}
+
+footer {
+  background: var(--primary-dark);
+  color: rgba(255,255,255,0.7);
+  text-align: center;
+  padding: 1.5rem;
+  font-size: 0.85rem;
+}
+
+@media (max-width: 600px) {
+  .hero h1 { font-size: 1.8rem; }
+  nav { padding: 0 1rem; }
+  .nav-links { display: none; }
+}
+</style>
+</head>
+<body>
+
+<nav>
+  <div class="logo">
+    <span>🩺</span> Health is Responsibility
+  </div>
+  <ul class="nav-links">
+    <li><a href="#" class="active" onclick="showPage('home')">Home</a></li>
+    <li><a href="#" onclick="showPage('firstaid')">First Aid</a></li>
+    <li><a href="#" onclick="showPage('awareness')">Awareness</a></li>
+    <li><a href="#" onclick="showPage('emergency')">Emergency</a></li>
+    <li><a href="#" onclick="showPage('about')">About Us</a></li>
+     **<li><a href="index.html" style="background: var(--accent); color: var(--primary);">العربية</a></li>**
+  </ul>
+</nav>
+
+<!-- HOME PAGE -->
+<div id="home" class="page active">
+  <div class="hero">
+    <h1>Accessible Medical Knowledge for Everyone</h1>
+    <p>Because critical moments do not wait — learn about first aid, clinical symptoms, and proper emergency response protocol</p>
+    <div class="hero-btns">
+      <button class="btn-primary" onclick="showPage('checker')">🔍 Symptom Checker</button>
+      <button class="btn-outline" onclick="showPage('emergency')">🚨 Emergency Status</button>
+    </div>
+  </div>
+
+  <div class="stats">
+    <div class="stat"><div class="stat-num">+5</div><div class="stat-label">First Aid Guides</div></div>
+    <div class="stat"><div class="stat-num">+5</div><div class="stat-label">Awareness Articles</div></div>
+    <div class="stat"><div class="stat-num">24/7</div><div class="stat-label">Continuous Availability</div></div>
+    <div class="stat"><div class="stat-num">100%</div><div class="stat-label">Free & Verified</div></div>
+  </div>
+
+  <div class="sections-grid">
+    <div class="section-card" onclick="showPage('checker')">
+      <div class="section-icon">🔍</div>
+      <h3>Symptom Checker</h3>
+      <p>Input clinical symptoms and receive an immediate evaluation</p>
+    </div>
+    <div class="section-card" onclick="showPage('firstaid')">
+      <div class="section-icon">🩹</div>
+      <h3>First Aid Protocol</h3>
+      <p>Clear instructions for acute emergency management</p>
+    </div>
+    <div class="section-card" onclick="showPage('awareness')">
+      <div class="section-icon">💡</div>
+      <h3>Health Awareness</h3>
+      <p>Essential clinical insights into common pathologies and prevention</p>
+    </div>
+    <div class="section-card" onclick="showPage('emergency')">
+      <div class="section-icon">🚨</div>
+      <h3>Emergency Response</h3>
+      <p>Take rapid actions during critical, time-sensitive situations</p>
+    </div>
+    <div class="section-card" onclick="showPage('about')">
+      <div class="section-icon">💙</div>
+      <h3>About Us</h3>
+      <p>The vision behind this platform and why it was developed</p>
+    </div>
+  </div>
+</div>
+
+<!-- CHECKER PAGE -->
+<div id="checker" class="page">
+  <div class="back-bar">
+    <button class="back-btn" onclick="showPage('home')">← Back to Home</button>
+  </div>
+  <div class="checker-section">
+    <h2 class="section-title">🔍 Symptom Checker</h2>
+    <p class="section-sub">Describe your clinical condition or the incident, and we will assist you in evaluating the situation</p>
+    <div class="checker-box">
+      <textarea class="checker-input" id="symptomInput2" rows="4" placeholder="Example: Experiencing acute cephalalgia (severe headache) with nausea for two hours, accompanied by blurred vision..."></textarea>
+      <div class="checker-tags">
+        <span class="tag" onclick="addTag2('Cephalalgia / Headache')">Headache</span>
+        <span class="tag" onclick="addTag2('Pyrexia / Fever')">Fever</span>
+        <span class="tag" onclick="addTag2('Angina / Chest Pain')">Chest Pain</span>
+        <span class="tag" onclick="addTag2('Hemorrhage / Bleeding')">Bleeding</span>
+        <span class="tag" onclick="addTag2('Syncope / Fainting')">Fainting</span>
+        <span class="tag" onclick="addTag2('Fatigue / Exhaustion')">Fatigue</span>
+        <span class="tag" onclick="addTag2('Dyspnea / Shortness of Breath')">Shortness of Breath</span>
+        <span class="tag" onclick="addTag2('Nausea & Emesis / Vomiting')">Nausea & Vomiting</span>
+        <span class="tag" onclick="addTag2('Abdominal Pain')">Abdominal Pain</span>
+        <span class="tag" onclick="addTag2('Vertigo / Dizziness')">Dizziness</span>
+      </div>
+      <button class="check-btn" onclick="checkSymptoms2()">Analyze Symptoms →</button>
+      <div class="result-box" id="resultBox2">
+        <div class="result-header" id="resultHeader2"></div>
+        <div class="result-body" id="resultBody2"></div>
+      </div>
+    </div>
+    <div class="disclaimer" style="border-radius:12px; margin-top:1rem;">
+      ⚠️ Medical Disclaimer: This evaluation tool is intended strictly for educational and health awareness purposes. It is not a substitute for professional clinical advice, diagnosis, or treatment.
+    </div>
+  </div>
+</div>
+<!-- FIRST AID PAGE -->
+<div id="firstaid" class="page">
+  <div class="content-page">
+    <div class="back-bar" style="padding: 1rem 0 0;">
+      <button class="back-btn" onclick="showPage('home')">← Back to Home</button>
+    </div>
+    <div class="page-header">
+      <h2>🩹 First Aid Protocols</h2>
+      <p style="color:var(--text-muted)">Clear, systematic steps for acute emergency management</p>
+    </div>
+    <div class="cards-grid">
+
+      <div class="info-card">
+        <h3>🩸 Severe Hemorrhage (Severe Bleeding)</h3>
+        <ol class="steps">
+          <li>Apply direct, firm pressure to the wound using a clean cloth.</li>
+          <li>Maintain continuous pressure; do not release to check the wound.</li>
+          <li>Elevate the injured limb above the level of the heart.</li>
+          <li>Activate Emergency Medical Services (EMS) if bleeding persists after 10 minutes.</li>
+        </ol>
+        <div class="warning-box">⚠️ Clinical Note: Never remove the cloth; if saturated, layer additional clean cloths directly on top.</div>
+      </div>
+
+      <div class="info-card">
+        <h3>🔥 Thermal Burns</h3>
+        <ol class="steps">
+          <li>Immediately evacuate the victim from the heat source.</li>
+          <li>Cool the affected area under gentle, cold running water for 10–20 minutes.</li>
+          <li>Do not apply home remedies like toothpaste, oils, or butter.</li>
+          <li>Protect the burn site with a sterile, non-adherent dressing or clean wrap.</li>
+        </ol>
+        <div class="warning-box">⚠️ Emergency: For extensive burns, deep tissue trauma, or facial burns, contact EMS immediately.</div>
+      </div>
+
+      <div class="info-card">
+        <h3>😮 Acute Airway Obstruction (Choking)</h3>
+        <ol class="steps">
+          <li>Encourage the individual to cough forcefully to dislodge the foreign object.</li>
+          <li>Lean their torso forward and deliver 5 distinct back blows between the shoulder blades.</li>
+          <li>If unsuccesful, perform abdominal thrusts (Heimlich Maneuver).</li>
+          <li>Contact Emergency Medical Services (EMS) immediately.</li>
+        </ol>
+        <div class="warning-box">⚠️ Pediatric Care: For choking infants under 1 year, place face down along your forearm, support the head, and deliver gentle back slaps.</div>
+      </div>
+
+      <div class="info-card">
+        <h3>🫀 Syncope (Fainting)</h3>
+        <ol class="steps">
+          <li>Position the individual supine (flat on their back) in a safe environment.</li>
+          <li>Elevate the lower extremities approximately 30 cm to improve cerebral blood flow.</li>
+          <li>Assess for regular, unobstructed respiration (breathing).</li>
+          <li>Do not administer oral food, fluids, or medications while unconscious.</li>
+        </ol>
+        <div class="warning-box">⚠️ High Risk: If the patient does not regain consciousness within 60 seconds, activate EMS immediately.</div>
+      </div>
+
+      <div class="info-card">
+        <h3>Bone Fractures</h3>
+        <ol class="steps">
+          <li>Immobilize the patient and avoid shifting the affected bone segment.</li>
+          <li>Stabilize the injury using a temporary splint (rigid support secured with cloth).</li>
+          <li>Apply a cold pack wrapped in a cloth to reduce localized edema (swelling).</li>
+          <li>Arrange immediate transport to the nearest trauma center or hospital.</li>
+        </ol>
+        <div class="warning-box">⚠️ Spinal Injury Warning: Suspected vertebral or spinal trauma requires absolute immobilization; do not move the patient.</div>
+      </div>
+
+      <div class="info-card">
+        <h3>🫁 Cardiopulmonary Resuscitation (CPR)</h3>
+        <ol class="steps">
+          <li>Assess responsiveness: gently shake the shoulders and call out loudly.</li>
+          <li>If unresponsive and not breathing normally, activate EMS immediately.</li>
+          <li>Begin high-quality chest compressions: deliver 30 rapid, deep compressions.</li>
+          <li>Provide 2 rescue breaths, and maintain a 30:2 ratio until emergency medical help arrives.</li>
+        </ol>
+        <div class="warning-box">⚠️ Compression Metrics: Compress hard and fast, targeting a compression rate of 100–120 thrusts per minute.</div>
+      </div>
+
+    </div>
+  </div>
+</div>
+<!-- AWARENESS PAGE -->
+<div id="awareness" class="page">
+  <div class="content-page">
+    <div class="back-bar" style="padding: 1rem 0 0;">
+      <button class="back-btn" onclick="showPage('home')">← Back to Home</button>
+    </div>
+    <div class="page-header">
+      <h2>💡 Health Awareness & Pathology</h2>
+      <p style="color:var(--text-muted)">Essential clinical insights into common pathologies and preventative medicine</p>
+    </div>
+    <div class="cards-grid">
+
+      <div class="info-card">
+        <h3>❤️ Myocardial Infarction (Heart Attack) Symptoms</h3>
+        <ul style="list-style:none; font-size:0.9rem; color:var(--text)">
+          <li style="margin-bottom:6px">• Acute angina (chest pain or pressure) radiating to the arm or jaw</li>
+          <li style="margin-bottom:6px">• Diaphoresis (sudden cold sweating) and acute nausea</li>
+          <li style="margin-bottom:6px">• Dyspnea (acute shortness of breath)</li>
+          <li style="margin-bottom:6px">• Severe vertigo (dizziness) or sudden syncope (fainting)</li>
+        </ul>
+        <div class="warning-box">⚠️ Critical: Activate EMS immediately — do not attempt to drive yourself to the hospital.</div>
+      </div>
+
+      <div class="info-card">
+        <h3>🧠 Ischemic/Hemorrhagic Stroke (Cerebrovascular Accident)</h3>
+        <p style="font-size:0.9rem; margin-bottom:0.75rem; color:var(--text)">Clinical Protocol: <strong>FAST</strong></p>
+        <ul style="list-style:none; font-size:0.9rem; color:var(--text)">
+          <li style="margin-bottom:6px">• <strong>F</strong>ace — Unilateral facial drooping or asymmetry</li>
+          <li style="margin-bottom:6px">• <strong>A</strong>rm — Pronator drift or localized muscle weakness in one arm</li>
+          <li style="margin-bottom:6px">• <strong>S</strong>peech — Dysarthria (slurred speech) or aphasia (difficulty speaking)</li>
+          <li style="margin-bottom:6px">• <strong>T</strong>ime — Time is brain; activate Emergency Medical Services immediately</li>
+        </ul>
+        <div class="warning-box">⚠️ Neurological Note: Every minute of delay leads to the death of approximately 1.9 million cortical neurons.</div>
+      </div>
+
+      <div class="info-card">
+        <h3>🩺 Blood Pressure (Hypertension Metrics)</h3>
+        <ul style="list-style:none; font-size:0.9rem; color:var(--text)">
+          <li style="margin-bottom:6px">• Normotensive (Normal): Below 120/80 mmHg</li>
+          <li style="margin-bottom:6px">• Hypertensive (Elevated): Above 140/90 mmHg</li>
+          <li style="margin-bottom:6px">• Hypertensive Crisis (Danger): Exceeding 180/110 mmHg</li>
+        </ul>
+        <div class="warning-box">⚠️ Clinical Emergency: Measurements exceeding 180 mmHg accompanied by severe cephalalgia or tinnitus require immediate trauma care.</div>
+      </div>
+
+      <div class="info-card">
+        <h3>🌡️ Pyrexia (Fever) — Clinical Assessment</h3>
+        <ul style="list-style:none; font-size:0.9rem; color:var(--text)">
+          <li style="margin-bottom:6px">• 37°C–38°C — Baseline/Low-grade; prioritize hydration and physiological rest</li>
+          <li style="margin-bottom:6px">• 38°C–39°C — Active monitoring required; administer antipyretics</li>
+          <li style="margin-bottom:6px">• Above 40°C — Hyperpyrexia risk; seek urgent medical intervention</li>
+        </ul>
+        <div class="warning-box">⚠️ Pediatric Warning: Any detected pyrexia in neonates or infants requires immediate pediatric clinical evaluation.</div>
+      </div>
+
+      <div class="info-card">
+        <h3>💊 Diabetes Mellitus — Diagnostic Warning Signs</h3>
+        <ul style="list-style:none; font-size:0.9rem; color:var(--text)">
+          <li style="margin-bottom:6px">• Polydipsia (excessive, unquenchable thirst)</li>
+          <li style="margin-bottom:6px">• Polyuria (frequent urination, particularly nocturnal)</li>
+          <li style="margin-bottom:6px">• Chronic, unexplained lethargy and fatigue</li>
+          <li style="margin-bottom:6px">• Delayed dermal wound healing and tissue repair</li>
+        </ul>
+        <div class="warning-box">⚠️ Pathology Note: Early-stage diabetes mellitus is typically asymptomatic; regular biochemical screening is recommended.</div>
+      </div>
+
+      <div class="info-card">
+        <h3>😷 Infectious Disease Prophylaxis (Prevention)</h3>
+        <ol class="steps">
+          <li>Perform hand hygiene with soap and water for a minimum of 20 seconds.</li>
+          <li>Avoid touching your mucosal membranes (eyes, nose, mouth) with unwashed hands.</li>
+          <li>Practice respiratory etiquette by covering your mouth during coughing or sneezing.</li>
+          <li>Maintain physical distancing protocols from individuals symptomatic of acute respiratory infections.</li>
+        </ol>
+      </div>
+
+    </div>
+  </div>
+</div>
+
+<!-- EMERGENCY PAGE -->
+<div id="emergency" class="page">
+  <div class="emergency-banner">
+    🚨 Facing an Immediate Life-Threatening Crisis? Activate EMS Protocols Immediately!
+  </div>
+  <div style="padding: 1rem 2rem 0; max-width:900px; margin:0 auto;">
+    <button class="back-btn" onclick="showPage('home')">← Back to Home</button>
+  </div>
+  <div class="emergency-grid">
+
+    <div class="emergency-card">
+      <h3>🫀 Sudden Cardiac Arrest</h3>
+      <ol class="steps">
+        <li>Immediately activate Emergency Medical Services (EMS).</li>
+        <li>Initiate high-quality CPR: deliver 30 deep chest compressions.</li>
+        <li>Provide 2 rescue breaths after every 30 compressions.</li>
+        <li>Maintain this lifecycle continuously until professional paramedics assume care.</li>
+      </ol>
+    </div>
+
+    <div class="emergency-card">
+      <h3>🧠 Acute Cerebrovascular Accident (Stroke)</h3>
+      <ol class="steps">
+        <li>Contact EMS immediately; neurological outcomes depend strictly on rapid intervention.</li>
+        <li>Place the patient in a comfortable, reclined position with their head slightly elevated.</li>
+        <li>Do not administer oral food, fluids, or pharmacological medications.</li>
+        <li>Document the exact time of symptom onset to provide critical data to the clinical team.</li>
+      </ol>
+    </div>
+
+    <div class="emergency-card">
+      <h3>😮 Severe Airway Obstruction (Choking)</h3>
+      <ol class="steps">
+        <li>Encourage forceful, active coughing to clear the airway naturally.</li>
+        <li>Deliver 5 distinct, forceful back blows between the shoulder blades.</li>
+        <li>Execute the Heimlich Maneuver (upward abdominal thrusts below the rib cage).</li>
+        <li>Repeat the cycle systematically until the foreign body is successfully expelled.</li>
+      </ol>
+    </div>
+
+    <div class="emergency-card">
+      <h3>🩸 Uncontrolled Hemorrhage (Severe Bleeding)</h3>
+      <ol class="steps">
+        <li>Exert firm, continuous direct pressure using a clean, sterile dressing.</li>
+        <li>Elevate the hemorrhaging anatomical site above the level of the heart.</li>
+        <li>Do not release pressure to reassess the status of the wound.</li>
+        <li>Activate EMS protocols immediately if the hemorrhage fails to halt after 10 minutes.</li>
+      </ol>
+    </div>
+
+    <div class="emergency-card">
+      <h3>🔥 Extensive Thermal Burns</h3>
+      <ol class="steps">
+        <li>Immediately evacuate the victim from the fire or heat source.</li>
+        <li>Cool the affected tissue under gentle, cold running water for 20 minutes.</li>
+        <li>Do not attempt to peel or remove clothing adhered to the burn site.</li>
+        <li>Cover loosely with a clean, sterile wrap and activate EMS protocols immediately.</li>
+      </ol>
+    </div>
+
+    <div class="emergency-card">
+      <h3>💊 Acute Poisoning & Toxicity</h3>
+      <ol class="steps">
+        <li>Immediately contact the Poison Control Center or Emergency Medical Services.</li>
+        <li>Do not attempt to induce emesis (vomiting) unless explicitly directed by clinical specialists.</li>
+        <li>Retain the chemical substance packaging or container to present to the attending physician.</li>
+        <li>Inform the medical team of the exact substance, estimated dosage, and time of exposure.</li>
+      </ol>
+    </div>
+
+  </div>
+</div>
+
+<!-- ABOUT PAGE -->
+<div id="about" class="page">
+  <div class="back-bar">
+    <button class="back-btn" onclick="showPage('home')">← Back to Home</button>
+  </div>
+  <div class="about-section">
+    <div class="about-avatar">👑</div>
+    <h2 style="font-size:1.8rem; font-weight:700; margin-bottom:0.5rem">Health is Responsibility</h2>
+    <p style="color:var(--text-muted); margin-bottom:1.5rem">A Non-Profit Digital Health Awareness Initiative</p>
+
+    <div class="about-quote">
+      "I witnessed individuals frozen in fear, paralyzed by a lack of guidance during minor injuries. Others fell victim to public ignorance. I do not blame them; they simply lacked access to proper medical education. Thus, I resolved to take initiative—hoping that one day, my efforts might be the catalyst for saving a human life."
+    </div>
+
+    <p style="line-height:1.8; color:var(--text); margin-bottom:1rem">
+      This platform was born out of a profound commitment to human welfare. In communities where health awareness remains scarce, providing the right clinical information at the right psychological moment can alter clinical outcomes and preserve lives.
+    </p>
+
+    <p style="line-height:1.8; color:var(--text); margin-bottom:2rem">
+      Our core objective is to deliver simplified, verified medical and preventative knowledge. This initiative is not designed to replace professional physician consultation, but to empower individuals with proper first responder actions until formal medical care is assumed.
+    </p>
+
+    <div class="contact-links">
+      <a href="mailto:isra.bouchentouf.research@gmail.com" class="contact-link">📧 Contact: isra.bouchentouf.research@gmail.com </a>
+    </div>
+
+    <div class="disclaimer" style="border-radius:12px; margin-top:2rem; text-align:left">
+      ⚠️ Evidence-Based Practice: All clinical resources and guidelines hosted on this platform are meticulously benchmarked against the World Health Organization (WHO) and Mayo Clinic protocols. This website serves strictly for health literacy and is not a substitute for professional diagnostic evaluation.
+    </div>
+  </div>
+</div>
+
+<div class="disclaimer">
+  ⚠️ Medical Literacy Disclaimer: Content is hosted strictly for educational and awareness purposes. In clinical crises, activate Emergency Medical Services immediately.
+</div>
+
+<footer>
+  © 2026 Health is Responsibility — All Rights Reserved. Created by Isra Bouchentouf.
+</footer>
+
+<script>
+const symptoms = {
+  'headache': {
+    keywords: ['headache', 'head', 'pain', 'migraine', 'cephalalgia', 'صداع', 'راس'],
+    conditions: [
+      { name: 'Tension Headache', severity: 'low', firstaid: 'Rest in a quiet, dark environment; ensure proper physiological hydration. Mild over-the-counter analgesics may be considered.', urgent: false },
+      { name: 'Hypertensive Episode', severity: 'medium', firstaid: 'Measure arterial blood pressure immediately. Assume a recumbent resting position, minimize physiological stress, and avoid physical exertion.', urgent: true },
+      { name: 'Potential Cerebrovascular Accident (Stroke)', severity: 'high', firstaid: 'If accompanied by unilateral facial drooping, acute upper extremity weakness, or sudden dysarthria (slurred speech), activate EMS protocols immediately.', urgent: true }
+    ]
+  },
+  'chest pain': {
+    keywords: ['chest', 'heart', 'angina', 'pain', 'pressure', 'صدر', 'قلب'],
+    conditions: [
+      { name: 'Potential Myocardial Infarction (Heart Attack)', severity: 'high', firstaid: 'Assume a seated, relaxed position. Avoid all physical exertion. Activate Emergency Medical Services immediately; do not attempt self-transportation.', urgent: true }
+    ]
+  },
+  'bleeding': {
+    keywords: ['bleeding', 'blood', 'wound', 'hemorrhage', 'injury', 'نزيف', 'دم'],
+    conditions: [
+      { name: 'External Hemorrhage', severity: 'medium', firstaid: 'Apply continuous direct pressure utilizing a sterile dressing. Elevate the anatomical site above the level of the heart. Do not remove the base dressing.', urgent: false }
+    ]
+  },
+  'shortness of breath': {
+    keywords: ['breath', 'breathing', 'dyspnea', 'suffocation', 'choking', 'تنفس', 'نفس'],
+    conditions: [
+      { name: 'Acute Asthma Exacerbation / Airway Obstruction', severity: 'high', firstaid: 'Maintain an upright seated position to ease respiratory mechanics. Cultivate a calm environment. Activate EMS immediately if clinical symptoms degrade.', urgent: true }
+    ]
+  },
+  'fainting': {
+    keywords: ['fainted', 'faint', 'syncope', 'unconscious', 'awareness', 'إغماء', 'وعي'],
+    conditions: [
+      { name: 'Syncope (Transient Unconsciousness)', severity: 'medium', firstaid: 'Place the patient supine (flat on their back). Elevate the lower extremities approximately 30 cm. Do not administer oral intake. Activate EMS if unresponsive.', urgent: true }
+    ]
+  },
+  'fever': {
+    keywords: ['fever', 'pyrexia', 'temperature', 'hot', 'heat', 'حمى', 'حرارة'],
+    conditions: [
+      { name: 'Pyrexia (Elevated Core Body Temperature)', severity: 'medium', firstaid: 'Prioritize aggressive oral hydration, optimal physiological rest, and antipyretics. Consult a physician immediately if the temperature exceeds 39°C.', urgent: false }
+    ]
+  }
+};
+
+function addTag2(text) {
+  const input = document.getElementById('symptomInput2');
+  input.value = input.value ? input.value + ', ' + text : text;
+}
+
+function checkSymptoms2() {
+  const input = document.getElementById('symptomInput2').value.toLowerCase();
+  if (!input.trim()) { alert('Please enter your clinical symptoms first.'); return; }
+  runCheck(input, 'resultBox2', 'resultHeader2', 'resultBody2');
+}
+
+function checkSymptoms() {
+  const input = document.getElementById('symptomInput').value.toLowerCase();
+  if (!input.trim()) { alert('Please enter your clinical symptoms first.'); return; }
+  runCheck(input, 'resultBox', 'resultHeader', 'resultBody');
+}
+
+function runCheck(input, boxId, headerId, bodyId) {
+  let found = null;
+  let maxSeverity = 'low';
+  for (const [key, data] of Object.entries(symptoms)) {
+    for (const kw of data.keywords) {
+      if (input.includes(kw)) {
+        found = data;
+        const cond = data.conditions[data.conditions.length - 1];
+        if (cond.severity === 'high') maxSeverity = 'high';
+        else if (cond.severity === 'medium' && maxSeverity !== 'high') maxSeverity = 'medium';
+        break;
+      }
+    }
+  }
+  const box = document.getElementById(boxId);
+  const header = document.getElementById(headerId);
+  const body = document.getElementById(bodyId);
+  if (!found) {
+    box.style.display = 'block';
+    box.className = 'result-box result-ok';
+    header.innerHTML = '✅ No Specific Pathology Detected';
+    body.innerHTML = '<p style="font-size:0.95rem; color:var(--text)">We could not correlate your described symptoms with our emergency baseline. If you are experiencing genuine physiological distress, please consult a healthcare professional immediately.<br><br><strong>Tip:</strong> Try describing your condition using clear clinical keywords such as: headache, fever, bleeding, or chest pain.</p>';
+    return;
+  }
+  const condition = found.conditions[found.conditions.length - 1];
+  box.style.display = 'block';
+  if (maxSeverity === 'high') { box.className = 'result-box result-danger'; header.innerHTML = '🚨 Critical Status: Activate EMS Immediately'; }
+  else if (maxSeverity === 'medium') { box.className = 'result-box result-warning'; header.innerHTML = '⚠️ Clinical Evaluation Recommended'; }
+  else { box.className = 'result-box result-ok'; header.innerHTML = '✅ Non-Urgent Status / Low Risk'; }
+  const sevClass = maxSeverity === 'high' ? 'sev-high' : maxSeverity === 'medium' ? 'sev-medium' : 'sev-low';
+  const sevText = maxSeverity === 'high' ? 'HIGH RISK' : maxSeverity === 'medium' ? 'MODERATE RISK' : 'LOW RISK';
+  body.innerHTML = `
+    <div class="result-row"><span class="result-label">Condition</span><span class="result-value">${condition.name} <span class="severity-badge ${sevClass}">${sevText}</span></span></div>
+    <div class="result-row"><span class="result-label">First Aid</span><span class="result-value">${condition.firstaid}</span></div>
+    <div class="result-row"><span class="result-label">EMS Alert</span><span class="result-value">${condition.urgent ? '🚨 Urgent: Contact EMS Immediately' : 'Emergency protocol not required at this time'}</span></div>
+    <p style="font-size:0.8rem; color:var(--text-muted); margin-top:0.5rem; border-top:1px solid var(--border); padding-top:0.5rem">⚠️ Medical Literacy Disclaimer: This is an automated assessment tool intended solely for awareness. Consult a certified physician for formal clinical diagnosis.</p>
+  `;
+}
+
+function showPage(id) {
+  document.querySelectorAll('.page').forEach(p => p.classList.remove('active'));
+  document.getElementById(id).classList.add('active');
+  document.querySelectorAll('.nav-links a').forEach(a => a.classList.remove('active'));
+  window.scrollTo(0, 0);
+}
+
+function addTag(text) {
+  const input = document.getElementById('symptomInput');
+  input.value = input.value ? input.value + ', ' + text : text;
+}
+</script>
+</body>
+</html>
