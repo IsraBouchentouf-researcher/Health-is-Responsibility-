@@ -513,10 +513,6 @@ nav {
   gap: 8px;
 }
 
-/* ESSESEY */
-
-
-
 /* ABOUT */
 .about-section {
   max-width: 700px;
@@ -681,11 +677,11 @@ footer {
       <h3>الطوارئ</h3>
       <p>تصرف بسرعة في الحالات الحرجة</p>
     </div>
-    <div class="section-card" onclink="showPage('essesey')">
-      <div class="section-icon">...</div>
-      <h3>المقالات العلمية</h3>
-      <p>كتب و مقالات و مجلات علمية متنوعة</p>
-    </div>
+   <div class="section-card" onclick="showPage('scientific')">
+       <div class="section-icon">📚</div>
+       <h3>مقالات علمية</h3>
+       <p>مكتبة من المقالات والكتب العلمية</p>
+   </div>
     <div class="section-card" onclick="showPage('about')">
       <div class="section-icon">💙</div>
       <h3>من نحن</h3>
@@ -963,10 +959,48 @@ footer {
   </div>
 </div>
 
-<!-- ESSESEY PAGE -->
-<div id="essesey" class="page">
-  <div style="padding: 1rem 2rem 0; max-width:900px; margin:0 auto;">
-    <button class="back-btn" onclick="showPage('home')">→ الرئيسية</button>
+<!-- SCIENTIFIC ARTICLES PAGE -->
+<div id="scientific" class="page">
+
+  <div class="content-page">
+
+    <div class="back-bar" style="padding: 1rem 0 0;">
+      <button class="back-btn" onclick="showPage('home')">→ الرئيسية</button>
+    </div>
+
+    <div class="page-header">
+      <h2>📚 مقالات علمية</h2>
+      <p style="color:var(--text-muted)">مكتبة متنوعة من المقالات، المجلات، والكتب العلمية</p>
+    </div>
+    <div class="cards-grid">
+      <a href="pdfs/soon" target="_blank" style="text-decoration:none;">
+        <div class="info-card">
+          <img src="images/soon" alt="غلاف مقال" style="width:100%; border-radius:10px; margin-bottom:0.75rem;">
+          <h3>...</h3>
+          <p style="font-size:0.9rem; color:var(--text)">
+            ...
+          </p>
+        </div>
+      </a>
+      <a href="pdfs/soon" target="_blank" style="text-decoration:none;">
+        <div class="info-card">
+          <img src="images/soon" alt="غلاف مجلة" style="width:100%; border-radius:10px; margin-bottom:0.75rem;">
+          <h3>...</h3>
+          <p style="font-size:0.9rem; color:var(--text)">
+            ...
+          </p>
+        </div>
+      </a>
+      <a href="pdfs/soon" target="_blank" style="text-decoration:none;">
+        <div class="info-card">
+          <img src="images/soon" alt="غلاف كتاب" style="width:100%; border-radius:10px; margin-bottom:0.75rem;">
+          <h3>...</h3>
+          <p style="font-size:0.9rem; color:var(--text)">
+            ...
+          </p>
+        </div>
+      </a>
+    </div>
   </div>
 </div>
 
