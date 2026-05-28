@@ -29,11 +29,11 @@ I decided to use my time during the school holidays to do something helpful. I b
 
 ---
 
-## 👩‍💻 About the Developer
-*   **Name:** Isra Bouchentouf  
-*   **Age:** 14 Years Old (Middle School Student)
-*   **Future Goal:** Aspiring Neurosurgeon & Preparing for the **United World Colleges (UWC)** application next year.  
-*   **Contact:** isra.bouchentouf.research@gmail.com
+👩‍💻 About the Developer
+* Name: Isra Bouchentouf
+* Age: 14 Years Old (Middle School Student)
+* Future Goal: Aspiring neurosurgeon aiming to make healthcare education accessible to everyone, everywhere.
+* Contact: isra.bouchentouf.research@gmail.com
 
 ---
 *⚠️ Medical Literacy Disclaimer: This website is made strictly for educational and health awareness purposes. It is a student project and should never replace professional medical advice, diagnosis, or treatment from a doctor.*
