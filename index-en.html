@@ -630,13 +630,7 @@ footer {
   <div class="logo">
     <span>🩺</span> Health is Responsibility
   </div>
-  <ul class="nav-links">
-    <li><a href="#" class="active" onclick="showPage('home')">Home</a></li>
-    <li><a href="#" onclick="showPage('firstaid')">First Aid</a></li>
-    <li><a href="#" onclick="showPage('awareness')">Awareness</a></li>
-    <li><a href="#" onclick="showPage('emergency')">Emergency</a></li>
-    <li><a href="#" onclick="showPage('about')">About Us</a></li>
-     **<li><a href="index.html" style="background: var(--accent); color: var(--primary);">العربية</a></li>**
+   <li><a href="index.html" style="background: var(--accent); color: var(--primary);">Ar</a></li>
   </ul>
 </nav>
 
@@ -654,6 +648,7 @@ footer {
   <div class="stats">
     <div class="stat"><div class="stat-num">+5</div><div class="stat-label">First Aid Guides</div></div>
     <div class="stat"><div class="stat-num">+5</div><div class="stat-label">Awareness Articles</div></div>
+    <div class="stat"><div class="stat-num">+0</div><div class="stat-label">Scientific Articles</div></div>
     <div class="stat"><div class="stat-num">24/7</div><div class="stat-label">Continuous Availability</div></div>
     <div class="stat"><div class="stat-num">100%</div><div class="stat-label">Free & Verified</div></div>
   </div>
@@ -678,6 +673,11 @@ footer {
       <div class="section-icon">🚨</div>
       <h3>Emergency Response</h3>
       <p>Take rapid actions during critical, time-sensitive situations</p>
+    </div>
+    <div class="section-card" onclick="showPage('scientific-en')">
+     <div class="section-icon">📚</div>
+     <h3>Scientific Articles</h3>
+     <p>A library of articles, journals, and books</p>
     </div>
     <div class="section-card" onclick="showPage('about')">
       <div class="section-icon">💙</div>
@@ -869,12 +869,12 @@ footer {
 
       <div class="info-card">
         <h3>😷 Infectious Disease Prophylaxis (Prevention)</h3>
-        <ol class="steps">
-          <li>Perform hand hygiene with soap and water for a minimum of 20 seconds.</li>
-          <li>Avoid touching your mucosal membranes (eyes, nose, mouth) with unwashed hands.</li>
-          <li>Practice respiratory etiquette by covering your mouth during coughing or sneezing.</li>
-          <li>Maintain physical distancing protocols from individuals symptomatic of acute respiratory infections.</li>
-        </ol>
+        <ul style="list-style:none; font-size:0.9rem; color:var(--text)">
+          <li style="margin-bottom:6px">• Perform hand hygiene with soap and water for a minimum of 20 seconds.</li>
+          <li style="margin-bottom:6px">• Avoid touching your mucosal membranes (eyes, nose, mouth) with unwashed hands.</li>
+          <li style="margin-bottom:6px">•Practice respiratory etiquette by covering your mouth during coughing or sneezing.</li>
+          <li style="margin-bottom:6px">• Maintain physical distancing protocols from individuals symptomatic of acute respiratory infections.</li>
+        </ul>
       </div>
 
     </div>
@@ -937,7 +937,7 @@ footer {
         <li>Immediately evacuate the victim from the fire or heat source.</li>
         <li>Cool the affected tissue under gentle, cold running water for 20 minutes.</li>
         <li>Do not attempt to peel or remove clothing adhered to the burn site.</li>
-        <li>Cover loosely with a clean, sterile wrap and activate EMS protocols immediately.</li>
+        <li>Gently cover the burn with a sterile, dry bandage.</li>
       </ol>
     </div>
 
@@ -951,6 +951,51 @@ footer {
       </ol>
     </div>
 
+  </div>
+</div>
+ 
+<!-- SCIENTIFIC ARTICLES PAGE -->
+<div id="scientific-en" class="page">
+
+  <div class="content-page">
+
+    <div class="back-bar" style="padding: 1rem 0 0;">
+      <button class="back-btn" onclick="showPage('home')">→ Home</button>
+    </div>
+
+    <div class="page-header">
+      <h2>📚 Scientific Articles</h2>
+      <p style="color:var(--text-muted)">A library of articles, journals, and scientific books</p>
+    </div>
+    <div class="cards-grid">
+      <a href="pdfs/soon" target="_blank" style="text-decoration:none;">
+        <div class="info-card">
+          <img src="images/soon" alt="Article Cover" style="width:100%; border-radius:10px; margin-bottom:0.75rem;">
+          <h3>...</h3>
+          <p style="font-size:0.9rem; color:var(--text)">
+            ...
+          </p>
+        </div>
+      </a>
+      <a href="pdfs/soon" target="_blank" style="text-decoration:none;">
+        <div class="info-card">
+          <img src="images/soon" alt="Journal Cover" style="width:100%; border-radius:10px; margin-bottom:0.75rem;">
+          <h3>...</h3>
+          <p style="font-size:0.9rem; color:var(--text)">
+            ...
+          </p>
+        </div>
+      </a>
+      <a href="pdfs/soon" target="_blank" style="text-decoration:none;">
+        <div class="info-card">
+          <img src="images/soon" alt="Book Cover" style="width:100%; border-radius:10px; margin-bottom:0.75rem;">
+          <h3>...</h3>
+          <p style="font-size:0.9rem; color:var(--text)">
+            ...
+          </p>
+        </div>
+      </a>
+    </div>
   </div>
 </div>
 
