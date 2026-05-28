@@ -513,6 +513,10 @@ nav {
   gap: 8px;
 }
 
+/* ESSESEY */
+
+
+
 /* ABOUT */
 .about-section {
   max-width: 700px;
@@ -633,15 +637,8 @@ footer {
   <div class="logo">
     <span>🩺</span> صحّتك مسؤولية
   </div>
-  <ul class="nav-links">
-    <li><a href="#" class="active" onclick="showPage('home')">الرئيسية</a></li>
-    <li><a href="#" onclick="showPage('firstaid')">الإسعافات</a></li>
-    <li><a href="#" onclick="showPage('awareness')">التوعية</a></li>
-    <li><a href="#" onclick="showPage('emergency')">طوارئ</a></li>
-    <li><a href="#" onclick="showPage('about')">من نحن</a></li>
-     **<li><a href="index-en.html" style="background: var(--accent); color: var(--primary);">English</a></li>**
-  </ul>
-
+   <li><a href="index-en.html" style="background: var(--accent); color: var(--primary);">En</a></li>
+  </div>
 </nav>
 
 <!-- HOME PAGE -->
@@ -657,7 +654,8 @@ footer {
 
   <div class="stats">
     <div class="stat"><div class="stat-num">+5</div><div class="stat-label">دليل إسعافات</div></div>
-    <div class="stat"><div class="stat-num">+5</div><div class="stat-label">مقالة توعوية</div></div>
+    <div class="stat"><div class="stat-num">+5</div><div class="stat-label">معلومة توعوية</div></div>
+    <div class="stat"><div class="stat-num">0</div><div class="stat-label">مقال علمي</div></div>
     <div class="stat"><div class="stat-num">24/7</div><div class="stat-label">متاح على مدار الساعة</div></div>
     <div class="stat"><div class="stat-num">100%</div><div class="stat-label">مجاني وموثوق</div></div>
   </div>
@@ -682,6 +680,11 @@ footer {
       <div class="section-icon">🚨</div>
       <h3>الطوارئ</h3>
       <p>تصرف بسرعة في الحالات الحرجة</p>
+    </div>
+    <div class="section-card" onclink="showPage('essesey')">
+      <div class="section-icon">...</div>
+      <h3>المقالات العلمية</h3>
+      <p>كتب و مقالات و مجلات علمية متنوعة</p>
     </div>
     <div class="section-card" onclick="showPage('about')">
       <div class="section-icon">💙</div>
@@ -875,12 +878,12 @@ footer {
 
       <div class="info-card">
         <h3>😷 الوقاية من العدوى</h3>
-        <ol class="steps">
-          <li>اغسل يديك 20 ثانية بالصابون</li>
-          <li>تجنب لمس وجهك بيدين غير نظيفتين</li>
-          <li>غطِّ فمك عند السعال والعطس</li>
-          <li>حافظ على المسافة مع المرضى</li>
-        </ol>
+        <ul style="list-style:none; font-size:0.9rem; color:var(--text)">
+          <li style="margin-bottom:6px">• اغسل يديك 20 ثانية بالصابون</li>
+          <li style="margin-bottom:6px">• تجنب لمس وجهك بيدين غير نظيفتين</li>
+          <li style="margin-bottom:6px">• غطِّ فمك عند السعال والعطس</li>
+          <li style="margin-bottom:6px">• حافظ على المسافة مع المرضى</li>
+        </ul>
       </div>
 
     </div>
@@ -943,7 +946,7 @@ footer {
         <li>ابعد عن مصدر النار فوراً</li>
         <li>ماء بارد جارٍ لمدة 20 دقيقة</li>
         <li>لا تنزع الملابس الملتصقة</li>
-        <li>غطِّ بورق ألمنيوم واطلب الإسعاف</li>
+        <li>غطِّ الحرق برفق باستخدام ضمادة معقمة جافة</li>
       </ol>
     </div>
 
@@ -957,6 +960,13 @@ footer {
       </ol>
     </div>
 
+  </div>
+</div>
+
+<!-- ESSESEY PAGE -->
+<div id="essesey" class="page">
+  <div style="padding: 1rem 2rem 0; max-width:900px; margin:0 auto;">
+    <button class="back-btn" onclick="showPage('home')">→ الرئيسية</button>
   </div>
 </div>
 
@@ -983,7 +993,7 @@ footer {
     </p>
 
     <div class="contact-links">
-      <a href="mailto:contact@sehhtak.com" class="contact-link">📧 للتواصل isra.bouchentouf.research@gmail.com </a>
+     <a href="mailto:contact@sehhtak.com" class="contact-link">📧 للتواصل isra.bouchentouf.research@gmail.com </a>
     </div>
 
     <div class="disclaimer" style="border-radius:12px; margin-top:2rem; text-align:right">
@@ -1109,7 +1119,6 @@ function addTag(text) {
   const input = document.getElementById('symptomInput');
   input.value = input.value ? input.value + '، ' + text : text;
 }
-
 
 
 
