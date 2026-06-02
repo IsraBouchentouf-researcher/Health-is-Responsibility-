@@ -877,6 +877,61 @@ footer {
         </ul>
       </div>
 
+      <div class="info-card">
+          <h3>🦠 Food Poisoning</h3>
+            <ul style="list-style:none; font-size:0.9rem; color:var(--text)">
+            <li>• Nausea and vomiting</li>
+            <li>• Frequent diarrhea</li>
+            <li>• Stomach pain or cramps</li>
+            <li>• Fever in some cases</li>
+          </ul>
+        <div class="warning-box">⚠️ Blood in the stool or severe dehydration requires medical attention</div>
+      </div>
+
+      <div class="info-card">
+          <h3>😴 Sleep Deprivation</h3>
+            <ul style="list-style:none; font-size:0.9rem; color:var(--text)">
+            <li>• Poor concentration</li>
+            <li>• Irritability</li>
+            <li>• Frequent headaches</li>
+            <li>• Reduced school or work performance</li>
+          </ul>
+        <div class="warning-box">⚠️ Teenagers usually need 8-10 hours of sleep per day</div>
+       </div>
+
+<div class="info-card">
+  <h3>👀 Eye Strain</h3>
+        <ul style="list-style:none; font-size:0.9rem; color:var(--text)">
+    <li>• Temporary blurred vision</li>
+    <li>• Dry or burning eyes</li>
+    <li>• Frequent headaches</li>
+    <li>• Difficulty concentrating</li>
+  </ol>
+  <div class="warning-box">⚠️ Follow the 20-20-20 rule when using screens</div>
+</div>
+
+<div class="info-card">
+  <h3>🦷 Dental Health</h3>
+        <ul style="list-style:none; font-size:0.9rem; color:var(--text)">
+    <li>• Brush your teeth twice a day</li>
+    <li>• Floss regularly</li>
+    <li>• Reduce sugary drinks</li>
+         <li>• Visit your dentist regularly</li>
+         </ol>
+        <div class="warning-box">⚠️ Frequent gum bleeding is not normal</div>
+      </div>
+
+      <div class="info-card">
+      <h3>🥤 Risks of Soft Drinks</h3>
+        <ul style="list-style:none; font-size:0.9rem; color:var(--text)">
+         <li>• Increased risk of tooth decay</li>
+         <li>• High sugar consumption</li>
+         <li>• Weight gain</li>
+         <li>• Low nutritional value</li>
+         </ol>
+        <div class="warning-box">⚠️ Excessive consumption can negatively affect overall health</div>
+      </div>
+
     </div>
   </div>
 </div>
@@ -967,36 +1022,32 @@ footer {
       <h2>📚 Scientific Articles</h2>
       <p style="color:var(--text-muted)">A library of articles, journals, and scientific books</p>
     </div>
-    <div class="cards-grid">
-      <a href="pdfs/soon" target="_blank" style="text-decoration:none;">
-        <div class="info-card">
-          <img src="images/soon" alt="Article Cover" style="width:100%; border-radius:10px; margin-bottom:0.75rem;">
-          <h3>...</h3>
-          <p style="font-size:0.9rem; color:var(--text)">
-            ...
-          </p>
-        </div>
-      </a>
-      <a href="pdfs/soon" target="_blank" style="text-decoration:none;">
-        <div class="info-card">
-          <img src="images/soon" alt="Journal Cover" style="width:100%; border-radius:10px; margin-bottom:0.75rem;">
-          <h3>...</h3>
-          <p style="font-size:0.9rem; color:var(--text)">
-            ...
-          </p>
-        </div>
-      </a>
-      <a href="pdfs/soon" target="_blank" style="text-decoration:none;">
-        <div class="info-card">
-          <img src="images/soon" alt="Book Cover" style="width:100%; border-radius:10px; margin-bottom:0.75rem;">
-          <h3>...</h3>
-          <p style="font-size:0.9rem; color:var(--text)">
-            ...
-          </p>
-        </div>
-      </a>
+    <!-- Language Switch -->
+
+<div style="text-align:center; margin:1rem 0;">
+  <button class="back-btn" onclick="filterLanguage('ar')">Ar</button>
+  <button class="back-btn" onclick="filterLanguage('en')">En</button>
+</div>
+<div class="cards-grid">
+
+  <!-- بطاقة عربية -->
+  <a href="pdfs/medicine-ar.pdf" target="_blank" style="text-decoration:none;">
+    <div class="info-card ar">
+      <img src="images/article1.jpg" alt="غلاف مقال" style="width:100%; border-radius:10px; margin-bottom:0.75rem;">
+      <h3>...</h3>
+      <p style="font-size:0.9rem; color:var(--text)">...</p>
     </div>
-  </div>
+  </a>
+
+  <!-- بطاقة إنجليزية -->
+  <a href="pdfs/The Dark History of Neurosurgery - Lobotomy.pdf" target="_blank" style="text-decoration:none;">
+    <div class="info-card en">
+      <img src="images/download (9).jfif" alt="Article Cover" style="width:100%; border-radius:10px; margin-bottom:0.75rem;">
+      <h3>Lobotomy</h3>
+      <p style="font-size:0.9rem; color:var(--text)">The dark history of neurosurgery</p>
+    </div>
+  </a>
+
 </div>
 
 <!-- ABOUT PAGE -->
@@ -1147,6 +1198,15 @@ function showPage(id) {
 function addTag(text) {
   const input = document.getElementById('symptomInput');
   input.value = input.value ? input.value + ', ' + text : text;
+}
+
+function filterLanguage(lang) {
+  document.querySelectorAll('.info-card').forEach(card => {
+    card.style.display = 'none';
+  });
+  document.querySelectorAll('.info-card.' + lang).forEach(card => {
+    card.style.display = 'block';
+  });
 }
 </script>
 </body>
