@@ -802,7 +802,10 @@ footer {
         <div class="warning-box">⚠️ اضغط بقوة وسرعة — 100 ضغطة في الدقيقة</div>
       </div>
 
-    </div>
+
+
+      
+   </div>
   </div>
 </div>
 
@@ -882,6 +885,61 @@ footer {
         </ul>
       </div>
 
+      <div class="info-card">
+        <h3>🦠 التسمم الغذائي</h3>
+        <ul style="list-style:none; font-size:0.9rem; color:var(--text)">
+          <li>• غثيان وقيء</li>
+          <li>• إسهال متكرر</li>
+          <li>• آلام أو تقلصات بالبطن</li>
+          <li>• ارتفاع درجة الحرارة أحياناً</li>
+        </ol>
+        <div class="warning-box">⚠️ الدم في البراز أو الجفاف الشديد يتطلب مراجعة طبية</div>
+      </div>
+
+      <div class="info-card">
+        <h3>😴 قلة النوم</h3>
+        <ul style="list-style:none; font-size:0.9rem; color:var(--text)">
+          <li>• ضعف التركيز</li>
+          <li>• سرعة الانفعال</li>
+          <li>• صداع متكرر</li>
+          <li>• ضعف الأداء الدراسي أو العملي</li>
+        </ol>
+        <div class="warning-box">⚠️ يحتاج المراهقون عادة إلى 8-10 ساعات نوم يومياً</div>
+      </div>
+
+      <div class="info-card">
+        <h3>👀 إجهاد العين</h3>
+        <ul style="list-style:none; font-size:0.9rem; color:var(--text)">
+          <li>• تشوش مؤقت في الرؤية</li>
+          <li>• جفاف أو حرقة العين</li>
+          <li>• صداع متكرر</li>
+          <li>• صعوبة التركيز</li>
+        </ol>
+        <div class="warning-box">⚠️ اتبع قاعدة 20-20-20 أثناء استخدام الشاشات</div>
+      </div>
+
+      <div class="info-card">
+        <h3>🦷 صحة الأسنان</h3>
+        <ul style="list-style:none; font-size:0.9rem; color:var(--text)">
+          <li>• نظف أسنانك مرتين يومياً</li>
+          <li>• استخدم خيط الأسنان بانتظام</li>
+          <li>• قلل المشروبات السكرية</li>
+          <li>• راجع طبيب الأسنان دورياً</li>
+        </ol>
+        <div class="warning-box">⚠️ نزيف اللثة المتكرر ليس أمراً طبيعياً</div>
+      </div>
+
+      <div class="info-card">
+        <h3>🥤 أضرار المشروبات الغازية</h3>
+        <ul style="list-style:none; font-size:0.9rem; color:var(--text)">
+          <li>• زيادة خطر تسوس الأسنان</li>
+          <li>• ارتفاع استهلاك السكر</li>
+          <li>• زيادة الوزن</li>
+          <li>• ضعف القيمة الغذائية</li>
+        </ol>
+        <div class="warning-box">⚠️ الإفراط في استهلاكها يؤثر على الصحة العامة</div>
+      </div>
+
     </div>
   </div>
 </div>
@@ -955,7 +1013,6 @@ footer {
         <li>أخبر الطبيب بالمادة والكمية والوقت</li>
       </ol>
     </div>
-
   </div>
 </div>
 
@@ -972,36 +1029,33 @@ footer {
       <h2>📚 مقالات علمية</h2>
       <p style="color:var(--text-muted)">مكتبة متنوعة من المقالات، المجلات، والكتب العلمية</p>
     </div>
-    <div class="cards-grid">
-      <a href="pdfs/soon" target="_blank" style="text-decoration:none;">
-        <div class="info-card">
-          <img src="images/soon" alt="غلاف مقال" style="width:100%; border-radius:10px; margin-bottom:0.75rem;">
-          <h3>...</h3>
-          <p style="font-size:0.9rem; color:var(--text)">
-            ...
-          </p>
-        </div>
-      </a>
-      <a href="pdfs/soon" target="_blank" style="text-decoration:none;">
-        <div class="info-card">
-          <img src="images/soon" alt="غلاف مجلة" style="width:100%; border-radius:10px; margin-bottom:0.75rem;">
-          <h3>...</h3>
-          <p style="font-size:0.9rem; color:var(--text)">
-            ...
-          </p>
-        </div>
-      </a>
-      <a href="pdfs/soon" target="_blank" style="text-decoration:none;">
-        <div class="info-card">
-          <img src="images/soon" alt="غلاف كتاب" style="width:100%; border-radius:10px; margin-bottom:0.75rem;">
-          <h3>...</h3>
-          <p style="font-size:0.9rem; color:var(--text)">
-            ...
-          </p>
-        </div>
-      </a>
+
+<!-- Language Switch -->
+
+<div style="text-align:center; margin:1rem 0;">
+  <button class="back-btn" onclick="filterLanguage('ar')">Ar</button>
+  <button class="back-btn" onclick="filterLanguage('en')">En</button>
+</div>
+<div class="cards-grid">
+
+  <!-- بطاقة عربية -->
+  <a href="pdfs/medicine-ar.pdf" target="_blank" style="text-decoration:none;">
+    <div class="info-card ar">
+      <img src="images/article1.jpg" alt="غلاف مقال" style="width:100%; border-radius:10px; margin-bottom:0.75rem;">
+      <h3>...</h3>
+      <p style="font-size:0.9rem; color:var(--text)">...</p>
     </div>
-  </div>
+  </a>
+
+  <!-- بطاقة إنجليزية -->
+  <a href="pdfs/The Dark History of Neurosurgery - Lobotomy.pdf" target="_blank" style="text-decoration:none;">
+    <div class="info-card en">
+      <img src="images/download (9).jfif" alt="Article Cover" style="width:100%; border-radius:10px; margin-bottom:0.75rem;">
+      <h3>Lobotomy</h3>
+      <p style="font-size:0.9rem; color:var(--text)">The dark history of neurosurgery</p>
+    </div>
+  </a>
+
 </div>
 
 <!-- ABOUT PAGE -->
@@ -1154,7 +1208,14 @@ function addTag(text) {
   input.value = input.value ? input.value + '، ' + text : text;
 }
 
-
+function filterLanguage(lang) {
+  document.querySelectorAll('.info-card').forEach(card => {
+    card.style.display = 'none';
+  });
+  document.querySelectorAll('.info-card.' + lang).forEach(card => {
+    card.style.display = 'block';
+  });
+}
 
 </script>
 </body>
